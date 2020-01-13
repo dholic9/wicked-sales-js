@@ -38,21 +38,21 @@ app.get('/api/products', (req, res, next) => {
 
 app.get('/api/products/:productId', (req, res, next) =>{
   const { productId } = req.params
+  const values = [productId]
   const sql = `
           SELECT *
             FROM "products"
-          WHERE "productId" = ${productId};
+          WHERE "productId" = $1;
         `
-  db.query(sql)
+  db.query(sql, values)
     .then( result => {
       if(result.rows.length<1){
-        return res.status(404).json({ error: "cannot find with that productId"})
+        return next(new ClientError(`cannot find with provided input`, 404))
       }
-        res.status(200).json(result.rows[0])
+      res.status(200).json(result.rows[0])
     })
-    .catch(err => next(new ClientError(`internal service error`, 500)))
+    .catch(err => next(err))
 });
-
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
