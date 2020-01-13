@@ -1,31 +1,31 @@
-import React from 'react'
-import ProductListItem from './product-list-item'
+import React from 'react';
+import ProductListItem from './product-list-item';
 
-export default class ProductList extends React.Component{
-  constructor(props){
-    super(props)
-    this.state ={
+export default class ProductList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       products: []
-    }
+    };
   }
 
-  getProducts(){
+  getProducts() {
     fetch('/api/products')
       .then(res => res.json())
       .then(data => {
-        this.setState({products: data})
+        this.setState({ products: data });
       })
       .catch(err => {
-        console.error(err)
-      })
+        console.error(err);
+      });
   }
 
-  componentDidMount(){
-    this.getProducts()
+  componentDidMount() {
+    this.getProducts();
   }
 
-  render(){
-    const productsArray = this.state.products
+  render() {
+    const productsArray = this.state.products;
 
     return (
       <div className="row">{
@@ -40,11 +40,11 @@ export default class ProductList extends React.Component{
                 shortDescription={product.shortDescription}
               />
             </div>
-          )
+          );
         })
       }
       </div>
-    )
+    );
   }
 
 }
