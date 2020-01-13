@@ -22,12 +22,12 @@ app.get('/api/health-check', (req, res, next) => {
 
 app.get('/api/products', (req, res, next) => {
   const sql = `
-        select "productId",
-               "name",
-               "price",
-               "image",
-               "shortDescription"
-        from "products";
+          SELECT "productId",
+                "name",
+                "price",
+                "image",
+                "shortDescription"
+            FROM "products";
         `;
   db.query(sql)
     .then(result => {
@@ -35,6 +35,24 @@ app.get('/api/products', (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+app.get('/api/products/:productId', (req, res, next) =>{
+  const { productId } = req.params
+  const sql = `
+          SELECT *
+            FROM "products"
+          WHERE "productId" = ${productId};
+        `
+  db.query(sql)
+    .then( result => {
+      if(result.rows.length<1){
+        return res.status(404).json({ error: "cannot find with that productId"})
+      }
+        res.status(200).json(result.rows[0])
+    })
+    .catch(err => next(new ClientError(`internal service error`, 500)))
+});
+
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));

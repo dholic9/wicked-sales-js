@@ -23,7 +23,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header></Header>
-        <div className="container">
+        <div className="container-fluid">
           <ProductList></ProductList>
         </div>
       </div>
