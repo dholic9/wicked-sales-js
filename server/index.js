@@ -20,7 +20,7 @@ app.get('/api/health-check', (req, res, next) => {
   next();
 });
 
-app.get('/api/health-check', (req, res, next) => {
+app.get('/api/products', (req, res, next) => {
   const sql = `
         select "productId",
                "name",
