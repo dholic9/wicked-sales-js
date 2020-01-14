@@ -30,7 +30,7 @@ export default class ProductDetails extends React.Component{
 
   render(){
     return (
-      <div className="row">
+      <div className="product-detail row">
         <i onClick={this.handleCatalogClick} className="fas fa-angle-left backButton my-4"></i>
         <div onClick={this.handleCatalogClick} className="backButton my-3">  Back to catalog</div>
         <div className="row">
