@@ -128,7 +128,6 @@ app.post('/api/cart', (req, res, next) => {
               returning "cartItemId"
               `
       const values=[data.cartId, productId, data.price]
-      console.log("data", data)
 
       return (
         db.query(cartItemSql, values)
@@ -140,7 +139,6 @@ app.post('/api/cart', (req, res, next) => {
       )
     })
     .then(answer => {
-      console.log('answer: ', answer)
       const newCartItemSql = `
                select "c"."cartItemId",
                       "c"."price",
@@ -155,7 +153,6 @@ app.post('/api/cart', (req, res, next) => {
       const values = [answer.cartItemId]
       db.query(newCartItemSql, values)
         .then(data => {
-          console.log('data2: ', data)
           res.status(201).json(data.rows[0])
         })
     })
