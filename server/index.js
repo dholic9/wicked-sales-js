@@ -17,7 +17,7 @@ app.get('/api/health-check', (req, res, next) => {
   db.query('select \'successfully connected\' as "message"')
     .then(result => res.json(result.rows[0]))
     .catch(err => next(err));
-  next();
+
 });
 
 app.get('/api/products', (req, res, next) => {
@@ -26,7 +26,8 @@ app.get('/api/products', (req, res, next) => {
                 "name",
                 "price",
                 "image",
-                "shortDescription"
+                "shortDescription",
+                "longDescription"
             FROM "products";
         `;
   db.query(sql)
