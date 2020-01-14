@@ -3,11 +3,21 @@ import React from 'react';
 export default class ProductListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDetailClick = this.handleDetailClick.bind(this)
   }
+
+  handleDetailClick(event) {
+    console.log('product list : click fired')
+    console.log(this.props)
+    this.props.setView('details', { productId: this.props.productId})
+  }
+
+
 
   render() {
     return (
       <div
+        onClick={this.handleDetailClick}
         className="card   align-items-center justify-content-center"
         style={{
           width: '100%',

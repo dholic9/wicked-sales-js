@@ -3,10 +3,11 @@ import ProductListItem from './product-list-item';
 
 export default class ProductList extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       products: []
     };
+
   }
 
   getProducts() {
@@ -24,6 +25,7 @@ export default class ProductList extends React.Component {
     this.getProducts();
   }
 
+
   render() {
     const productsArray = this.state.products;
 
@@ -33,6 +35,7 @@ export default class ProductList extends React.Component {
           return (
             <div key={product.productId} className="product-card col-3">
               <ProductListItem
+                setView={this.props.setView}
                 name={product.name}
                 price={product.price}
                 image={product.image}
