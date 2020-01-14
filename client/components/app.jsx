@@ -34,6 +34,7 @@ export default class App extends React.Component {
     })
   }
 
+
   showCatalogOrDetailedView(){
     if(this.state.view.name === 'catalog'){
       return (<ProductList setView={this.setView}></ProductList>)

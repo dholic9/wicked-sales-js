@@ -7,8 +7,6 @@ export default class ProductListItem extends React.Component {
   }
 
   handleDetailClick(event) {
-    console.log('product list : click fired')
-    console.log(this.props)
     this.props.setView('details', { productId: this.props.productId})
   }
 

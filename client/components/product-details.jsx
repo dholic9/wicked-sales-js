@@ -7,8 +7,7 @@ export default class ProductDetails extends React.Component{
       product: null,
     }
     this.productId = this.props.params.productId
-    this.handleLongDescription = this.handleLongDescription.bind(this)
-    this.handleImage = this.handleImage.bind(this)
+    this.handleCatalogClick = this.handleCatalogClick.bind(this)
   }
 
   componentDidMount(){
@@ -16,51 +15,46 @@ export default class ProductDetails extends React.Component{
       .then(res => res.json())
       .then(data => {
         this.setState({product: data})
-        console.log('product details state', this.state)
       })
       .catch(err => {
         console.error(err)
       })
   }
 
-  handleLongDescription(){
-    if(!this.state.product){
-      return "Loading..."
-    } else {
-      return this.state.product.longDescription
-    }
+  handleCatalogClick(){
+
+    this.props.setView('catalog', {})
   }
 
-  handleImage(){
-    if(!this.state.product){
-      return "Loading..."
-    } else {
-      return (this.state.product.image)
-    }
-  }
 
 
   render(){
     return (
       <div className="row">
-        <div className="col-5">
-          <img src={this.state.product
-                    ? this.state.product.image
-                    : "nothing"} alt=""/>
-        </div>
-        <div className="col-7">
-          <h2>{this.state.product
-              ? this.state.product.name
-              : "hello"}</h2>
-          <h5>{this.state.product
-            ? ("$" + this.state.product.price)
-            : "hello"}</h5>
-          <p>{this.state.product
-            ? this.state.product.shortDescription
-            : "hello"}</p>
-        </div>
-        <div className="col-12">
-          <p>{this.handleLongDescription()}</p>
+        <i onClick={this.handleCatalogClick} className="fas fa-angle-left backButton my-4"></i>
+        <div onClick={this.handleCatalogClick} className="backButton my-3">  Back to catalog</div>
+        <div className="row">
+          <div className="product-detail-image col-5">
+            <img height="500px" width="500px" src={this.state.product
+                        ? this.state.product.image
+                        : "loading"} alt=""/>
+          </div>
+          <div className="col-7">
+            <h2>{this.state.product
+                  ? this.state.product.name
+                  : "loading"}</h2>
+            <h5>{this.state.product
+                  ? ("$" + this.state.product.price)
+                  : "loading"}</h5>
+            <p>{this.state.product
+                  ? this.state.product.shortDescription
+                  : "loading"}</p>
+          </div>
+          <div className="col-12">
+            <p>{this.state.product
+                  ? this.state.product.longDescription
+                  : "loading"}</p>
+          </div>
         </div>
       </div>
     )
