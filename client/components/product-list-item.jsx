@@ -3,14 +3,12 @@ import React from 'react';
 export default class ProductListItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDetailClick = this.handleDetailClick.bind(this)
+    this.handleDetailClick = this.handleDetailClick.bind(this);
   }
 
   handleDetailClick(event) {
-    this.props.setView('details', { productId: this.props.productId})
+    this.props.setView('details', { productId: this.props.productId });
   }
-
-
 
   render() {
     return (
@@ -18,7 +16,7 @@ export default class ProductListItem extends React.Component {
         onClick={this.handleDetailClick}
         className="card h-100">
         <img src={this.props.image}
-        className="card-img-top" alt="..."/>
+          className="card-img-top" alt="..."/>
         <div className="card-body">
           <h6>{'$' + this.props.price.toFixed(2)}</h6>
           <h5>{this.props.name}</h5>

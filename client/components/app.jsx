@@ -27,7 +27,7 @@ export default class App extends React.Component {
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
     this.getCartItems()
-    console.log('got cart Items', this.state)
+    console.log('app state: ', this.state)
   }
 
   setView(name, params){
