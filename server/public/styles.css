@@ -30,9 +30,12 @@ body{
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
-
+.card-detail {
+  padding-left: 15%;
+}
 .card-detail-image {
   height: 400px;
+  width: 460px;
   object-fit: contain;
 }
 .product-detail{
@@ -42,9 +45,8 @@ body{
 }
 .backButton{
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   display:flex
-
 }
 
 .cart-item-number{

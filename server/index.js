@@ -20,6 +20,8 @@ app.get('/api/health-check', (req, res, next) => {
 
 });
 
+/*   PRODUCTS handle     */
+
 app.get('/api/products', (req, res, next) => {
   const sql = `
           SELECT "productId",
@@ -55,17 +57,19 @@ app.get('/api/products/:productId', (req, res, next) =>{
     .catch(err => next(err))
 });
 
+/*   CART handle     */
+
 app.get('/api/cart', (req, res, next) => {
   const sql = `
-           select "c"."cartItemId",
+           SELECT "c"."cartItemId",
                   "c"."price",
                   "p"."productId",
                   "p"."image",
                   "p"."name",
                   "p"."shortDescription"
-             from "cartItems" as "c"
-             join "products" as "p" using ("productId")
-            where "c"."cartId" = $1
+             FROM "cartItems" as "c"
+             JOIN "products" as "p" using ("productId")
+            WHERE "c"."cartId" = $1
           `
   const values = [req.session.cartId]
   if(!req.session.cartId){
@@ -105,13 +109,13 @@ app.post('/api/cart', (req, res, next) => {
         }
       }
       const createSql = `
-                  insert into "carts" ("cartId", "createdAt")
-                  values (default, default)
-                  returning "cartId"
+                  INSERT INTO "carts" ("cartId", "createdAt")
+                  VALUES (default, default)
+                  RETURNING "cartId"
                   `
 
       return (db.query(createSql)
-        .then(cartResult =>{
+        .then(cartResult => {
           return {
             cartId: cartResult.rows[0].cartId,
             price: result.rows[0].price
@@ -122,9 +126,9 @@ app.post('/api/cart', (req, res, next) => {
     .then(data => {
       req.session.cartId = data.cartId
       const cartItemSql = `
-              insert into "cartItems" ("cartId", "productId", "price")
-              values ($1, $2, $3)
-              returning "cartItemId"
+              INSERT INTO "cartItems" ("cartId", "productId", "price")
+              VALUES ($1, $2, $3)
+              RETURNING "cartItemId"
               `
       const values=[data.cartId, productId, data.price]
 
@@ -139,15 +143,15 @@ app.post('/api/cart', (req, res, next) => {
     })
     .then(answer => {
       const newCartItemSql = `
-               select "c"."cartItemId",
+               SELECT "c"."cartItemId",
                       "c"."price",
                       "p"."productId",
                       "p"."image",
                       "p"."name",
                       "p"."shortDescription"
-                from "cartItems" as "c"
-                join "products" as "p" using ("productId")
-                where "c"."cartItemId" = $1
+                FROM "cartItems" as "c"
+                JOIN "products" as "p" using ("productId")
+                WHERE "c"."cartItemId" = $1
                 `
       const values = [answer.cartItemId]
       return (
@@ -160,6 +164,39 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err=>next(err))
   })
 
+/*   ORDERS handle     */
+  app.post('/api/orders', (req, res, next) => {
+    if (!req.session.cartId) {
+      return res.status(400).json({ error: "Invalid cart"})
+    }
+
+    if(!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
+      return res.status(400).json({ error: "Must fill out all input fields"})
+    }
+
+    const orderSql = `
+            INSERT INTO "orders" ("cartId", "name", "creditCard", "shippingAddress")
+            VALUES ($1, $2, $3, $4)
+            RETURNING * ;
+            `
+    const values = [
+            req.session.cartId,
+            req.body.name,
+            req.body.creditCard,
+            req.body.shippingAddress
+          ]
+
+    db.query(orderSql, values)
+      .then( result => {
+        console.log("orders result: ", result)
+        if (result.rows.length>1){
+          delete req.session.cartId
+        }
+        res.status(201).json(result.rows[0])
+
+      })
+
+  })
 
 
 app.use('/api', (req, res, next) => {
