@@ -34,8 +34,8 @@ export default class ProductDetails extends React.Component{
   render(){
     return (
       <div className="product-detail row">
-        <i onClick={this.handleCatalogClick} className="fas fa-angle-left backButton my-4"></i>
-        <div onClick={this.handleCatalogClick} className="backButton my-3">  Back to catalog</div>
+        <i onClick={this.handleCatalogClick} className="fas fa-angle-left text-secondary my-4 mr-2"></i>
+        <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         <div className="row">
           <div className="product-detail-image col-5">
             <img height="500px" width="500px" src={this.state.product
@@ -46,7 +46,7 @@ export default class ProductDetails extends React.Component{
             <h2>{this.state.product
                   ? this.state.product.name
                   : "loading"}</h2>
-            <h5>{this.state.product
+            <h5 className="text-secondary">{this.state.product
                   ? ("$" + this.state.product.price)
                   : "loading"}</h5>
             <p>{this.state.product

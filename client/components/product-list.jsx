@@ -25,7 +25,6 @@ export default class ProductList extends React.Component {
     this.getProducts();
   }
 
-
   render() {
     const productsArray = this.state.products;
 
