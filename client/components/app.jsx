@@ -12,7 +12,8 @@ export default class App extends React.Component {
       view: {
         name: "catalog",
         params: {}
-      }
+        },
+      cart: []
     };
     this.setView = this.setView.bind(this)
   }
@@ -23,6 +24,8 @@ export default class App extends React.Component {
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
+    this.getCartItems()
+    console.log('got cart Items', this.state)
   }
 
   setView(name, params){
@@ -34,7 +37,6 @@ export default class App extends React.Component {
     })
   }
 
-
   showCatalogOrDetailedView(){
     if(this.state.view.name === 'catalog'){
       return (<ProductList setView={this.setView}></ProductList>)
@@ -43,10 +45,18 @@ export default class App extends React.Component {
     }
   }
 
+  getCartItems(){
+    fetch('/api/cart')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ cart: data})
+      })
+  }
+
   render() {
     return (
       <div>
-        <Header></Header>
+        <Header cartItemCount={this.state.cart.length}></Header>
         <div className="container-fluid">
           {this.showCatalogOrDetailedView()}
         </div>

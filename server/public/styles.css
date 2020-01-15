@@ -32,7 +32,6 @@ body{
 }
 
 .product-detail{
-  border: 1px solid black;
   background-color: white;
   padding-left: 4%;
   padding-right: 4%;
@@ -41,4 +40,9 @@ body{
   cursor: pointer;
   font-size: 1.3rem;
   color: rgb(116, 116, 116)
+}
+
+.cart{
+
+  flex-direction: row;
 }
