@@ -14,7 +14,7 @@ export default class CartSummaryItem extends React.Component {
         </div>
         <div className=" col-7">
           <h3>{this.props.item.name}</h3>
-          <h5 className="text-secondary">{"$"+this.props.item.price}</h5>
+          <h5 className="text-secondary">{"$"+this.props.item.price.toFixed(2)}</h5>
           <p>{this.props.item.shortDescription}</p>
         </div>
       </div>
