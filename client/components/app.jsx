@@ -16,6 +16,7 @@ export default class App extends React.Component {
       cart: []
     };
     this.setView = this.setView.bind(this)
+    this.addToCart = this.addToCart.bind(this)
   }
 
   componentDidMount() {
@@ -37,11 +38,15 @@ export default class App extends React.Component {
     })
   }
 
-  showCatalogOrDetailedView(){
+  showView(){
     if(this.state.view.name === 'catalog'){
       return (<ProductList setView={this.setView}></ProductList>)
     } else if (this.state.view.name === "details") {
-      return (<ProductDetails params={this.state.view.params} setView={this.setView}></ProductDetails>)
+      return (<ProductDetails
+                params={this.state.view.params}
+                setView={this.setView}
+                addToCart={this.addToCart}>
+              </ProductDetails>)
     }
   }
 
@@ -53,12 +58,31 @@ export default class App extends React.Component {
       })
   }
 
+  addToCart(product){
+    fetch('api/cart', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+    .then( res => res.json())
+    .then(data => {
+      console.log('addtocart fetch data: ', data)
+      const cartArr = [...this.state.cart]
+      cartArr.push(data)
+      this.setState({ cart: cartArr })
+      console.log("state after add cart", this.state)
+    })
+    .catch(err => { console.error(err) })
+  }
+
   render() {
     return (
       <div>
         <Header cartItemCount={this.state.cart.length}></Header>
         <div className="container-fluid">
-          {this.showCatalogOrDetailedView()}
+          {this.showView()}
         </div>
       </div>
 
