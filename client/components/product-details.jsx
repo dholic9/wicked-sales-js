@@ -36,18 +36,18 @@ export default class ProductDetails extends React.Component{
       <div className="product-detail row">
         <i onClick={this.handleCatalogClick} className="fas fa-angle-left text-secondary my-4 mr-2"></i>
         <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
-        <div className="row">
+        <div className="row ">
           <div className="product-detail-image col-5">
             <img className="card-detail-image" src={this.state.product
                         ? this.state.product.image
                         : "loading"} alt=""/>
           </div>
-          <div className="col-7">
+          <div className="col-7 card-detail">
             <h2>{this.state.product
                   ? this.state.product.name
                   : "loading"}</h2>
             <h5 className="text-secondary">{this.state.product
-                  ? ("$" + this.state.product.price)
+                  ? ("$" + this.state.product.price.toFixed(2))
                   : "loading"}</h5>
             <p>{this.state.product
                   ? this.state.product.shortDescription

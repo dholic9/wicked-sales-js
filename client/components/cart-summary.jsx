@@ -37,7 +37,7 @@ render(){
       <div className="row">
         <div className="col text-secondary backButton">
           <span>
-            <i onClick={this.handleSetView} className="fas fa-angle-left mt-2 mr-2 backButton"></i>
+            <i onClick={this.handleSetView} className="fas fa-angle-left mt-1 mr-2 backButton"></i>
           </span>
           <div onClick={this.handleSetView} className="backButton ">  Back to catalog</div>
 
@@ -45,7 +45,7 @@ render(){
       </div>
       <div className="row ">
         <h1>My Cart</h1>
-        <h3 className="total-price">{"Total: $" + this.displayTotalPrice()}</h3>
+        <h4 className="total-price">{"Total: $" + this.displayTotalPrice()}</h4>
       </div>
       {this.displayCartItems()}
     </div>
