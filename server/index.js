@@ -96,7 +96,7 @@ app.post('/api/cart', (req, res, next) => {
   db.query(sql, values)
     .then( result => {
       if(result.rows.length<1){
-        return next(new ClientError(`Cannot find product with that provided input`, 400))
+        throw (new ClientError(`Cannot find product with that provided input`, 400))
       }
       if(req.session.cartId){
         return {
@@ -117,7 +117,6 @@ app.post('/api/cart', (req, res, next) => {
             price: result.rows[0].price
           }
         })
-        .catch(error => console.error(error))
       )
     })
     .then(data => {
@@ -153,7 +152,7 @@ app.post('/api/cart', (req, res, next) => {
       const values = [answer.cartItemId]
       db.query(newCartItemSql, values)
         .then(data => {
-          res.status(201).json(data.rows[0])
+          return res.status(201).json(data.rows[0])
         })
     })
     .catch(err=>next(err))
