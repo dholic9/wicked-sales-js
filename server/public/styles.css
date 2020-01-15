@@ -42,7 +42,17 @@ body{
   color: rgb(116, 116, 116)
 }
 
+.cart-item-number{
+  font-size: 1.1rem;
+}
 .cart{
-
-  flex-direction: row;
+  cursor: pointer;
+  font-size: 1.75rem;
+  display: flex;
+  height: 100%;
+  width: 120px;
+  position: absolute;
+  right:0;
+  align-items: center;
+  flex-wrap: wrap;
 }
