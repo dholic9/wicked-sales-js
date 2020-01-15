@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(255, 255, 255);
 }
 
 .nav{
@@ -20,17 +20,21 @@ body{
   flex-direction: column;
   flex-wrap: wrap;
 }
-.product-card{
-  overflow: hidden;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 3px;
-  margin-right: 3px;
-  padding: 0px;
+
+.card-img-top {
+  height: 250px;
+  object-fit: contain;
+}
+
+.card {
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
 
+.card-detail-image {
+  height: 400px;
+  object-fit: contain;
+}
 .product-detail{
   background-color: white;
   padding-left: 4%;
@@ -39,7 +43,8 @@ body{
 .backButton{
   cursor: pointer;
   font-size: 1.3rem;
-  color: rgb(116, 116, 116)
+  display:flex
+
 }
 
 .cart-item-number{
@@ -55,4 +60,14 @@ body{
   right:0;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.cart-item{
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+}
+.total-price{
+  display: flex;
+  float: right;
+  position: absolute;
+  right: 10%;
 }
