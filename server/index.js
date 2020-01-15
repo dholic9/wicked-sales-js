@@ -150,10 +150,12 @@ app.post('/api/cart', (req, res, next) => {
                 where "c"."cartItemId" = $1
                 `
       const values = [answer.cartItemId]
-      db.query(newCartItemSql, values)
-        .then(data => {
-          return res.status(201).json(data.rows[0])
-        })
+      return (
+        db.query(newCartItemSql, values)
+          .then(data => {
+            return res.status(201).json(data.rows[0])
+          })
+      )
     })
     .catch(err=>next(err))
   })
