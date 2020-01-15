@@ -23,6 +23,14 @@ export default class CartSummary extends React.Component{
     this.props.setView("catalog", {})
   }
 
+  displayTotalPrice(){
+    let sum = 0
+    this.props.Array.map(index => {
+      sum += parseInt(index.price)
+    })
+    return sum.toFixed(2)
+  }
+
 render(){
   return(
     <div className="container">
@@ -32,10 +40,12 @@ render(){
             <i onClick={this.handleSetView} className="fas fa-angle-left mt-2 mr-2 backButton"></i>
           </span>
           <div onClick={this.handleSetView} className="backButton ">  Back to catalog</div>
+
         </div>
       </div>
       <div className="row ">
         <h1>My Cart</h1>
+        <h3 className="total-price">{"Total: $" + this.displayTotalPrice()}</h3>
       </div>
       {this.displayCartItems()}
     </div>
