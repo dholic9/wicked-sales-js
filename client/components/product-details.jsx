@@ -46,7 +46,7 @@ export default class ProductDetails extends React.Component {
               ? this.state.product.name
               : 'loading'}</h2>
             <h5 className="text-secondary">{this.state.product
-              ? ('$' + this.state.product.price.toFixed(2))
+              ? ('$' + (this.state.product.price/100).toFixed(2))
               : 'loading'}</h5>
             <p>{this.state.product
               ? this.state.product.shortDescription

@@ -4,17 +4,21 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.handleCartView = this.handleCartView.bind(this);
+    this.handleBackToHomeClick = this.handleBackToHomeClick.bind(this)
   }
 
   handleCartView() {
     this.props.setView('cart', {});
+  }
+  handleBackToHomeClick(event){
+    this.props.setView('catalog', {})
   }
 
   render() {
     const cartItemCount = this.props.cartItemCount;
     return (
       <nav className="navbar align-middle text-white navbar-expand-lg navbar-dark bg-dark">
-        <h3>$Wicked Sales</h3>
+        <h3 className="home-button" onClick={this.handleBackToHomeClick}>$Wicked Sales</h3>
         <div onClick={this.handleCartView} className="cart">
           <p className="m-0 cart-item-number">{cartItemCount === 1
             ? cartItemCount + '  Item'

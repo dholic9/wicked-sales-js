@@ -1,11 +1,14 @@
 body{
   background-color: rgb(255, 255, 255);
+
 }
 
 .nav{
   height:67px
 }
-
+.home-button{
+  cursor: pointer;
+}
 .col-3{
   max-width: 24% ;
 }

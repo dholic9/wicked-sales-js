@@ -10,7 +10,6 @@ export default class CartSummary extends React.Component {
 
   displayCartItems() {
     var cartArray = this.props.Array;
-    console.log('cartsummary ', cartArray);
     return cartArray.map(item => {
       return (
         <CartSummaryItem key={item.cartItemId} item={item}></CartSummaryItem>
@@ -25,7 +24,7 @@ export default class CartSummary extends React.Component {
   displayTotalPrice() {
     let sum = 0;
     this.props.Array.map(index => {
-      sum += parseInt(index.price);
+      sum += Number(index.price/100);
     });
     return sum.toFixed(2);
   }

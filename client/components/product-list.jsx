@@ -29,8 +29,8 @@ export default class ProductList extends React.Component {
     const productsArray = this.state.products;
 
     return (
-      <div className="row">{
-        productsArray.map(product => {
+      <div className="row">
+        {productsArray.map(product => {
           return (
             <div key={product.productId} className="product-card col-12 col-sm-6 col-md-4 mb-3">
               <ProductListItem
@@ -43,8 +43,7 @@ export default class ProductList extends React.Component {
               />
             </div>
           );
-        })
-      }
+        })}
       </div>
     );
   }
