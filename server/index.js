@@ -188,7 +188,6 @@ app.post('/api/cart', (req, res, next) => {
 
     db.query(orderSql, values)
       .then( result => {
-        console.log("orders result: ", result)
         if (result.rows.length>1){
           delete req.session.cartId
         }

@@ -5,6 +5,7 @@ export default class CartSummary extends React.Component {
   constructor(props) {
     super(props);
     this.handleSetView = this.handleSetView.bind(this);
+    this.goToCheckout = this.goToCheckout.bind(this)
   }
 
   displayCartItems() {
@@ -29,23 +30,41 @@ export default class CartSummary extends React.Component {
     return sum.toFixed(2);
   }
 
+  goToCheckout(event){
+    this.props.setView('checkout', {})
+  }
+
   render() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col text-secondary backButton">
+          <div className="text-secondary backButton mb-2">
             <span>
               <i onClick={this.handleSetView} className="fas fa-angle-left mt-1 mr-2 backButton"></i>
             </span>
             <div onClick={this.handleSetView} className="backButton ">  Back to catalog</div>
-
           </div>
         </div>
         <div className="row ">
           <h1>My Cart</h1>
-          <h4 className="total-price">{'Total: $' + this.displayTotalPrice()}</h4>
         </div>
+
         {this.displayCartItems()}
+
+        <div className="row justify-content-between mb-4 pb-4 pt-2">
+          <div className="flex-row">
+            <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.goToCheckout}
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
