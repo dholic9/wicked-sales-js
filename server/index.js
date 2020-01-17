@@ -78,7 +78,6 @@ app.get('/api/cart', (req, res, next) => {
 
   db.query(sql, values)
     .then ( result => {
-
       return res.status(200).json(result.rows)
     })
     .catch(err => next(err))
@@ -92,11 +91,9 @@ app.post('/api/cart', (req, res, next) => {
             FROM "products"
             WHERE "productId" = $1
             `
-
   if(productId<1){
     return res.status(400).json({ error: "Id must be a positive number"})
   }
-
   db.query(sql, values)
     .then( result => {
       if(result.rows.length<1){
@@ -164,38 +161,55 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err=>next(err))
   })
 
-/*   ORDERS handle     */
-  app.post('/api/orders', (req, res, next) => {
-    if (!req.session.cartId) {
-      return res.status(400).json({ error: "Invalid cart"})
-    }
+/*   DELETE handle   */
 
-    if(!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
-      return res.status(400).json({ error: "Must fill out all input fields"})
-    }
-
-    const orderSql = `
-            INSERT INTO "orders" ("cartId", "name", "creditCard", "shippingAddress")
-            VALUES ($1, $2, $3, $4)
-            RETURNING * ;
+app.delete('/api/cart/:deleteCartItemId', (req, res, next) => {
+  let  { deleteCartItemId }  = req.params
+  if (deleteCartItemId<1) {
+    return res.status(404).json({ error: "no product with that deleteCartItemId"})
+  }
+  const values = [deleteCartItemId]
+  const deleteSql = `
+            DELETE from "cartItems"
+            WHERE "cartItemId" = $1
+            RETURNING *;
             `
-    const values = [
-            req.session.cartId,
-            req.body.name,
-            req.body.creditCard,
-            req.body.shippingAddress
-          ]
+  db.query(deleteSql, values)
+    .then (result => {
+      return res.status(200).json(result.rows)
+    })
+    .catch( err => console.error("error: ", err))
+})
 
-    db.query(orderSql, values)
-      .then( result => {
-        if (result.rows.length>1){
-          delete req.session.cartId
-        }
-        res.status(201).json(result.rows[0])
 
-      })
 
-  })
+/*   ORDERS handle     */
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    return res.status(400).json({ error: "Invalid cart"})
+  }
+  if(!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
+    return res.status(400).json({ error: "Must fill out all input fields"})
+  }
+  const orderSql = `
+          INSERT INTO "orders" ("cartId", "name", "creditCard", "shippingAddress")
+          VALUES ($1, $2, $3, $4)
+          RETURNING * ;
+          `
+  const values = [
+          req.session.cartId,
+          req.body.name,
+          req.body.creditCard,
+          req.body.shippingAddress
+        ]
+  db.query(orderSql, values)
+    .then( result => {
+      if (result.rows.length>1){
+        delete req.session.cartId
+      }
+      res.status(201).json(result.rows[0])
+    })
+})
 
 
 app.use('/api', (req, res, next) => {

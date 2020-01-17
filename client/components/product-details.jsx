@@ -27,25 +27,33 @@ export default class ProductDetails extends React.Component {
   }
 
   handleAddCart() {
+    console.log(this.state)
     this.props.addToCart(this.state.product);
   }
 
   render() {
     return (
       <div className="product-detail row">
-        <i onClick={this.handleCatalogClick} className="fas fa-angle-left text-secondary my-4 mr-2"></i>
-        <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
+        <i
+          onClick={this.handleCatalogClick}
+          className="fas fa-angle-left text-secondary my-4 mr-2">
+        </i>
+        <div
+          onClick={this.handleCatalogClick}
+          className="backButton my-3 text-secondary">
+            Back to catalog
+        </div>
         <div className="row ">
           <div className="product-detail-image col-5">
             <img className="card-detail-image" src={this.state.product
               ? this.state.product.image
               : 'loading'} alt=""/>
           </div>
-          <div className="col-7 card-detail">
-            <h2>{this.state.product
+          <div className="col-7 mb-4 card-detail">
+            <h2>{ this.state.product
               ? this.state.product.name
               : 'loading'}</h2>
-            <h5 className="text-secondary">{this.state.product
+            <h5 className="text-secondary">{ this.state.product
               ? ('$' + (this.state.product.price/100).toFixed(2))
               : 'loading'}</h5>
             <p>{this.state.product
@@ -53,8 +61,8 @@ export default class ProductDetails extends React.Component {
               : 'loading'}</p>
             <button onClick={this.handleAddCart} className="btn btn-primary" type="button">Add to Cart</button>
           </div>
-          <div className="col-12">
-            <p>{this.state.product
+          <div className="col-12 ">
+            <p className="mt-4">{this.state.product
               ? this.state.product.longDescription
               : 'loading'}</p>
           </div>

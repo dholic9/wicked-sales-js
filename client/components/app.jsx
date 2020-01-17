@@ -12,7 +12,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: "catalog",
+        name: "cart",
         params: {}
         },
       cart: []
@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this)
     this.addToCart = this.addToCart.bind(this)
     this.placeOrder = this.placeOrder.bind(this)
+    this.deleteFromCart = this.deleteFromCart.bind(this)
   }
 
   componentDidMount() {
@@ -60,7 +61,8 @@ export default class App extends React.Component {
         return (
           <CartSummary
             setView={this.setView}
-            Array={this.state.cart}>
+            Array={this.state.cart}
+            deleteFromCart={this.deleteFromCart}>
           </CartSummary>
         )
     } else if (this.state.view.name === "checkout") {
@@ -93,14 +95,33 @@ export default class App extends React.Component {
     })
     .then( res => res.json())
     .then( data => {
-      console.log('addtocart fetch data: ', data)
-      const cartArr = [...this.state.cart]
+      let cartArr = [...this.state.cart]
       cartArr.push(data)
       this.setState({ cart: cartArr })
       console.log("state after add cart", this.state)
     })
     .catch(err => { console.error(err) })
   }
+
+  deleteFromCart(cartItemId){
+    fetch(`/api/cart/${cartItemId}`, {
+      method: "DELETE",
+      body: JSON.stringify(cartItemId)
+    })
+    .then(res => res.json())
+    .then( data => {
+      let cartArr = [...this.state.cart]
+      cartArr.map(index => {
+        if(index.cartItemId === cartItemId){
+          cartArr.splice(index, 1)
+        }
+      })
+      this.setState({ cart: cartArr})
+    })
+    .catch(err => console.error(err))
+
+  }
+
 
   placeOrder(orderObject) {
     fetch('api/orders', {
