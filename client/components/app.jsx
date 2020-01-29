@@ -14,7 +14,7 @@ export default class App extends React.Component {
       view: {
         name: "catalog",
         params: {}
-        },
+      },
       cart: []
     };
     this.setView = this.setView.bind(this)
@@ -32,7 +32,7 @@ export default class App extends React.Component {
     console.log('app state: ', this.state)
   }
 
-  setView(name, params){
+  setView(name, params) {
     this.setState({
       view: {
         name: name,
