@@ -27,7 +27,7 @@ export default class ProductDetails extends React.Component {
   }
 
   handleAddCart() {
-    console.log(this.state)
+    console.log("details state: ", this.state)
     this.props.addToCart(this.state.product);
   }
 
