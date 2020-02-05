@@ -3,8 +3,9 @@ body{
 
 }
 
-.nav{
-  height:67px
+.navbar{
+  height:80px;
+  background-color: rgba(0, 0, 0, 0.9)
 }
 .home-button{
   cursor: pointer;
@@ -14,9 +15,7 @@ body{
 }
 
 .container-fluid{
-  padding-left: 5rem;
-  padding-right: 3.5rem;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .product-detail-image{

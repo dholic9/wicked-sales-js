@@ -1,61 +1,61 @@
-import React from 'react'
+import React from 'react';
 
-export default class CheckoutForm extends React.Component{
-  constructor(props){
-    super(props)
-    this.state ={
+export default class CheckoutForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       name: null,
       creditCard: null,
       shippingAddress: null
-    }
+    };
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleCreditCardChange = this.handleCreditCardChange.bind(this)
-    this.handleShippingAddressChange = this.handleShippingAddressChange.bind(this)
-    this.handleBackToCatalog = this.handleBackToCatalog.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
+    this.handleShippingAddressChange = this.handleShippingAddressChange.bind(this);
+    this.handleBackToCatalog = this.handleBackToCatalog.bind(this);
   }
 
-  handleNameChange(event){
+  handleNameChange(event) {
     this.setState({
       name: event.target.value
-    })
+    });
   }
 
-  handleCreditCardChange(event){
+  handleCreditCardChange(event) {
     this.setState({
       creditCard: event.target.value
-    })
+    });
   }
 
-  handleShippingAddressChange(event){
+  handleShippingAddressChange(event) {
     this.setState({
       shippingAddress: event.target.value
-    })
+    });
   }
 
-  handleBackToCatalog(){
+  handleBackToCatalog() {
     this.props.setView('catalog', {});
   }
 
-  handleSubmit(event){
-    event.preventDefault()
+  handleSubmit(event) {
+    event.preventDefault();
     const orderInformation = {
       name: this.state.name,
       creditCard: this.state.creditCard,
       shippingAddress: this.state.shippingAddress
-    }
-    this.props.placeOrder(orderInformation)
+    };
+    this.props.placeOrder(orderInformation);
   }
 
-  displayTotalPrice(){
-    let total = 0
+  displayTotalPrice() {
+    let total = 0;
     this.props.cart.map(index => {
-      total += Number(index.price/100)
-    })
-    return total.toFixed(2)
+      total += Number(index.price / 100);
+    });
+    return total.toFixed(2);
   }
 
-  render(){
+  render() {
     return (
       <div className="row flex-column mt-4 px-4 ">
         <div className="col-12  p-0">
@@ -63,7 +63,7 @@ export default class CheckoutForm extends React.Component{
         </div>
         <div className="row mb-4 mt-2">
           <div className="col-12 text-secondary">
-            <h4>{"Order Total: $" + this.displayTotalPrice()}</h4>
+            <h4>{'Order Total: $' + this.displayTotalPrice()}</h4>
           </div>
         </div>
         <div className="row mb-3">
@@ -114,17 +114,17 @@ export default class CheckoutForm extends React.Component{
                   <div onClick={this.handleBackToCatalog} className="backButton my-3 text-secondary "> Continue Shopping</div>
                 </div>
                 <div>
-                    <button
-                      type="submit"
-                      className="btn btn-primary  float-right rounded">
+                  <button
+                    type="submit"
+                    className="btn btn-primary  float-right rounded">
                         Place Order
-                    </button>
+                  </button>
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

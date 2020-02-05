@@ -44,32 +44,27 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <ProductList
-          setView={this.setView}>
-        </ProductList>
+          setView={this.setView} />
       );
     } else if (this.state.view.name === 'details') {
       return (
         <ProductDetails
           params={this.state.view.params}
           setView={this.setView}
-          addToCart={this.addToCart}>
-        </ProductDetails>
+          addToCart={this.addToCart} />
       );
     } else if (this.state.view.name === 'cart') {
       return (
         <CartSummary
           setView={this.setView}
-          Array={this.state.cart}>
-        </CartSummary>
+          Array={this.state.cart} />
       );
     } else if (this.state.view.name === 'checkout') {
       return (
         <CheckoutForm
           setView={this.setView}
           placeOrder={this.placeOrder}
-          cart={this.state.cart}
-        >
-        </CheckoutForm>
+          cart={this.state.cart} />
       );
     }
   }
