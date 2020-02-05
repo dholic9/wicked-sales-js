@@ -194,7 +194,6 @@ app.post('/api/cart', (req, res, next) => {
         res.status(201).json(result.rows[0])
 
       })
-
   })
 
 
