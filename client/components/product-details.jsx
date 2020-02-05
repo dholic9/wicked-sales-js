@@ -32,19 +32,19 @@ export default class ProductDetails extends React.Component {
 
   render() {
     return (
-      <div className="product-detail mx-4 card ">
+      <div className="product-detail mx-4 mb-5 card ">
         <div className="row flex-row">
           <i onClick={this.handleCatalogClick} className="fas fa-angle-left d-flex text-secondary my-4 mr-2"></i>
           <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         </div>
 
-        <div className="row card-body">
-          <div className="product-detail-image col-5">
+        <div className="row card-body ">
+          <div className="product-detail-image text-center col-sm-12 col-md-5">
             <img className="card-detail-image" src={this.state.product
               ? this.state.product.image
               : 'loading'} alt=""/>
           </div>
-          <div className="col-7 card-detail">
+          <div className="col-md-7 col-sm-12 card-detail">
             <h2>{this.state.product
               ? this.state.product.name
               : 'loading'}</h2>
@@ -56,7 +56,7 @@ export default class ProductDetails extends React.Component {
               : 'loading'}</p>
             <button onClick={this.handleAddCart} className="btn btn-primary" type="button">Add to Cart</button>
           </div>
-          <div className="col-12">
+          <div className="col-12 detail-long">
             <p>{this.state.product
               ? this.state.product.longDescription
               : 'loading'}</p>
