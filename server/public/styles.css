@@ -75,3 +75,49 @@ body{
 
   right: 10%;
 }
+.cart-item-detail{
+  margin-left: 1.5rem;
+}
+
+/**    Iphone6/7/8 landscape    */
+@media screen and (max-width: 750px) {
+  .card-body {
+    flex-direction: column;
+  }
+  .card-detail-image {
+    height: 300px;
+    width: 125vmin;
+  }
+  .card-detail {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .detail-long {
+    padding: 0;
+  }
+}
+
+/**    Iphone6/7/8 portrait    */
+@media screen and (max-width: 450px) {
+  .card-body {
+    flex-direction: column;
+  }
+  .card-detail-image {
+    height: 300px;
+    width: 65vmin;
+  }
+  .card-detail {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .detail-long {
+    padding: 0;
+  }
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cart-item-detail {
+    margin: 0
+  }
+}
