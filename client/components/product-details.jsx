@@ -34,7 +34,7 @@ export default class ProductDetails extends React.Component {
     return (
       <div className="product-detail mx-4 mb-5 card ">
         <div className="row flex-row">
-          <i onClick={this.handleCatalogClick} className="fas fa-angle-left d-flex text-secondary my-4 mr-2"></i>
+          <i onClick={this.handleCatalogClick} className="fas fa-angle-left d-flex text-secondary my-4 mr-2 ml-2"></i>
           <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         </div>
 
