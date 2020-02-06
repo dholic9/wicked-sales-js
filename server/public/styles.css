@@ -96,6 +96,10 @@ body{
     padding: 0;
   }
 }
+.carousel-pic {
+  object-fit: cover;
+}
+
 
 /**    Iphone6/7/8 portrait    */
 @media screen and (max-width: 450px) {
