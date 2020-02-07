@@ -32,10 +32,11 @@ body{
 
 .card {
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
+
 }
-.card:hover{
-  border: solid 2px rgba(0, 0, 0, 0.31)
+.feature-card:hover{
+  border: solid 2px rgba(0, 0, 0, 0.31);
+  cursor: pointer;
 }
 .card-detail {
   padding-left: 15%;
@@ -86,12 +87,12 @@ body{
 
 .carousel-pic {
   object-fit: cover;
-  width: 63vw;
-  height: 50vh;
+  width: 80vw;
+  height: 57vh;
 }
 
-/**    Iphone6/7/8 landscape    */
-@media screen and (max-width: 750px) {
+/**    Iphone6/7/8/X landscape    */
+@media screen and (max-width: 850px) {
   .card-body {
     flex-direction: column;
   }
@@ -110,7 +111,7 @@ body{
 
 
 
-/**    Iphone6/7/8 portrait    */
+/**    Iphone6/7/8/X portrait    */
 @media screen and (max-width: 450px) {
   .card-body {
     flex-direction: column;
@@ -132,5 +133,8 @@ body{
   }
   .cart-item-detail {
     margin: 0
+  }
+  .carousel-pic{
+    object-fit: contain;
   }
 }
