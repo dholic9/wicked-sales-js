@@ -164,6 +164,23 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err=>next(err))
   })
 
+  /**   DELETE from Cart */
+  app.delete('/api/cart/:cartItemId', (req, res, next) => {
+    const { cartItemId } = req.params;
+    const sql = `
+          DELETE FROM "cartItems"
+              WHERE "cartItemId" = $1
+              RETURNING *;
+    `
+    const values = [cartItemId]
+    db.query(sql, values)
+      .then(response => {
+        res.status(204).json(response.rows);
+      })
+      .catch(err => next(err))
+  })
+
+
 /*   ORDERS handle     */
   app.post('/api/orders', (req, res, next) => {
     if (!req.session.cartId) {
