@@ -245,6 +245,9 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 14	16	4	119
 15	16	2	39
 16	17	5	99
+17	18	2	1499
+18	18	4	9999
+19	18	5	2999
 \.
 
 
@@ -270,6 +273,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 15	2020-01-14 23:33:44.332635+00
 16	2020-01-15 01:19:41.879794+00
 17	2020-01-15 18:12:05.43415+00
+18	2020-02-05 22:15:10.204288+00
 \.
 
 
@@ -286,12 +290,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-2	ShamWow	1499	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-1	Shake Weight	2499	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	9999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	2999	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	2999	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2999	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock\\n.Aesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+6	Ducky MIYA Pro Panda Mechanical Keyboard	13500	/images/panda.jpg	White LED 65% Dye Sub PBT Mechanical Keyboard	MIYA Pro Panda\nThe Ducky MIYA Pro Panda Edition is a compact gaming keyboard in the TKL-Mini format that uses just 65% percent of the space of a full keyboard. It is based on the Varmilo VA68M and offers an impressive and unique design in black, white, green and even includes a panda motif on the spacebar! The keyboard blends unique looks with a white LED backlight and premium Cherry MX switches. Due to its diminutive dimensions, the Ducky MIYA Pro Panda Edition is incredibly portable as well.
+5	Obinslab Anne Pro 2 White	8900	/images/anne-pro2white.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	Features\nCan be used wired over USB-C or wirelessly over Bluetooth 4.0\nLarge 1900 mah battery with Built-in on/off switch to conserve battery power\nObinsLab Starter companion computer software for programming keyboard layout, function keys, lighting effects, battery life monitoring, macros, and updating firmware\nBluetooth functionality is compatible with Windows, Mac, Linux, iOS, and Android.
+4	Obinslab Anne Pro 2 Black	8900	/images/anne-pro2.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	Features\nCan be used wired over USB-C or wirelessly over Bluetooth 4.0\nLarge 1900 mah battery with Built-in on/off switch to conserve battery power\nObinsLab Starter companion computer software for programming keyboard layout, function keys, lighting effects, battery life monitoring, macros, and updating firmware\nBluetooth functionality is compatible with Windows, Mac, Linux, iOS, and Android.
+1	Ducky One 2 Mini Pure White	9900	/images/one2miniwhite.png	RGB LED 60% Double Shot PBT Mechanical Keyboard	Features:\n10 additional PBT Double Shot colorful keycaps (Random color)\nIncludes Ducky Year of the Pig Limited Edition spacebar\nBrand new bezel design and Dual layer PCB\nPBT double - shot seamless keycaps\nSupports Ducky Macro 2.0, the most powerful hardware available in the market\n3 level adjustable feet and Detachable USB Type - C cable\nBrand new RGB lighting modes and mode architecture\n60% size, lightweight and extremely portable\n
+2	Ducky Mecha Mini	11900	/images/ducky-mecha.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	The Ducky One 2 Mini Mecha is everything you love about the classic One 2 Mini wrapped in one of the most beautifully balanced frames ever used in a keyboard. The Mechas ground-breaking cast aluminum frame offers stunning aesthetics with curves and features that bulky CNC machined Aluminum frames can only dream of. The weight of the frame is substantial but also balanced and not just heavy for the sake of being heavy. You have to feel it to believe it.\n\n\nThe Mecha comes equipped with PBT double shot seamless keycaps with side laser engraving. It has a smaller size, but no functions have been sacrificed. Supports Ducky Macro V2.0 and Mouse control function.\n\n\nTo stand out in the crowd we chose to use PBT seamless double-shot keycaps. It is designed and engineered in a way to provide the user with the best durability and typing experience. Varieties of colorways available.\n\n\nDetachable USB Type-C cable provides convenience to users. The Mecha uses USB HID with the highest frequency of 1000Hz polling rate, meaning the keyboard is sending its input signal(s) to your PC 1000 times per second. This feature minimizes the delay of when the keys are being pressed and signal received by the computer.\n\n\nEvery Ducky One 2 Mini Mecha comes with 10 additional PBT Double-Shot Colorful keycaps (Random color)
+3	Ducky MIYA Pro Sakura Mechanical Keyboard	11900	/images/sakura.jpg	LED 65% Dye Sub PBT Mechanical Keyboard	Sakura Pattern Mechanical Keyboard, Perfect For Girl Gaming Lover\nFn+ Keys to Trigger the Side-engraved Keys Function\nChange Functions Between "1" to "+" and "F1"to "F12" Through Fn+ Pagedown and Fn+ Pageup\nSuspended Keycaps\nN-key Rollover\nType-C Port, Seperate Keyboard and Cable Design\nWarmilo Profession Programmable Drive\nOriginal Cherry MX Black switches\nPBT Keycaps
 \.
 
 
@@ -299,14 +303,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 16, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 19, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 17, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 18, true);
 
 
 --
