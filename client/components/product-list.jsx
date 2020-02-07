@@ -33,7 +33,6 @@ export default class ProductList extends React.Component {
         <div className="row text-center justify-content-center mb-4">
           <h1><u>Featured</u></h1>
         </div>
-
         <div className="row justify-content-center align-items-center carousel mb-4">
           <div id="carouselExampleIndicators" className="carousel slide" data-interval="4500" data-ride="carousel">
             <ol className="carousel-indicators">
@@ -73,15 +72,8 @@ export default class ProductList extends React.Component {
               <span className="sr-only">Next</span>
             </a>
           </div>
-
-
-
-
         </div>
-
-
-
-        <div className="row mb-4">
+        <div className="row mb-5">
           {productsArray.map(product => {
             return (
               <div key={product.productId} className="product-card col-12 col-sm-6 col-md-4 mb-3">
