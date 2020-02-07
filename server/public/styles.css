@@ -1,8 +1,6 @@
 body{
   background-color: rgb(255, 255, 255);
-
 }
-
 .navbar{
   height:80px;
   background-color: rgb(138,43,226);
@@ -15,24 +13,19 @@ body{
 .col-3{
   max-width: 24% ;
 }
-
 .container-fluid{
   padding-top: 2rem;
 }
-
 .product-detail-image{
   flex-direction: column;
   flex-wrap: wrap;
 }
-
 .card-img-top {
   height: 250px;
   object-fit: contain;
 }
-
 .card {
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
-
 }
 .feature-card:hover{
   border: solid 2px rgba(0, 0, 0, 0.31);
