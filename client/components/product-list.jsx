@@ -7,7 +7,7 @@ export default class ProductList extends React.Component {
     this.state = {
       products: []
     };
-
+    this.handleCarouselClick = this.handleCarouselClick.bind(this)
   }
 
   getProducts() {
@@ -25,16 +25,18 @@ export default class ProductList extends React.Component {
     this.getProducts();
   }
 
+  handleCarouselClick(event) {
+    let clickedId = event.target.getAttribute('data-id')
+    this.props.setView('details', {productId: clickedId})
+  }
+
   render() {
     const productsArray = this.state.products;
 
     return (
       <React.Fragment>
-        <div className="row text-center justify-content-center mb-4">
-          <h1><u>Featured</u></h1>
-        </div>
         <div className="row justify-content-center align-items-center carousel mb-4">
-          <div id="carouselExampleIndicators" className="carousel slide" data-interval="4500" data-ride="carousel">
+          <div id="carouselExampleIndicators" className="carousel slide" data-interval="5500" data-ride="carousel">
             <ol className="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -44,23 +46,23 @@ export default class ProductList extends React.Component {
               <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
             </ol>
             <div className="carousel-inner text-center">
-              <div className="carousel-item">
-                <img className="d-block w-10 carousel-pic" src="/images/panda.jpg" alt="First slide" />
+              <div  className="carousel-item active">
+                <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" data-id="6" src="/images/panda.jpg" alt="First slide" />
               </div>
-              <div className="carousel-item active">
-                <img className="d-block w-10 carousel-pic" src="/images/one2miniwhite.png" alt="Second slide"/>
+              <div  className="carousel-item ">
+                <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" data-id="1" src="/images/one2miniwhite.png" alt="Second slide"/>
               </div>
-              <div className="carousel-item">
-                <img className="d-block w-10 carousel-pic" src="/images/one2miniwhite-1.jpg" alt="Third slide"/>
+              <div  className="carousel-item">
+                <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/one2miniwhite-1.jpg" data-id="1" alt="Third slide"/>
               </div>
-              <div className="carousel-item">
-                <img className="d-block w-10 carousel-pic" src="/images/ducky-mecha.jpg" alt="Fourth slide"/>
+              <div  className="carousel-item">
+                <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/ducky-mecha.jpg" data-id="2" alt="Fourth slide"/>
               </div>
-              <div className="carousel-item">
-                <img className="d-block w-10 carousel-pic" src="/images/sakura.jpg" alt="Fifth slide" />
+              <div  className="carousel-item">
+                <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/sakura.jpg" data-id="3" alt="Fifth slide" />
               </div>
-              <div className="carousel-item">
-                <img className="d-block w-10 carousel-pic" src="/images/anne-pro2white.jpg" alt="Sixth slide" />
+              <div  className="carousel-item">
+                <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/anne-pro2white.jpg" data-id="5" alt="Sixth slide" />
               </div>
             </div>
             <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -5,14 +5,15 @@ export default class CartSummary extends React.Component {
   constructor(props) {
     super(props);
     this.handleSetView = this.handleSetView.bind(this);
-    this.goToCheckout = this.goToCheckout.bind(this)
+    this.goToCheckout = this.goToCheckout.bind(this);
+    this.displayCartItems = this.displayCartItems.bind(this)
   }
 
   displayCartItems() {
     var cartArray = this.props.Array;
     return cartArray.map(item => {
       return (
-        <CartSummaryItem key={item.cartItemId} item={item}></CartSummaryItem>
+        <CartSummaryItem key={item.cartItemId} delete={this.props.delete} item={item}></CartSummaryItem>
       );
     });
   }
@@ -20,6 +21,7 @@ export default class CartSummary extends React.Component {
   handleSetView() {
     this.props.setView('catalog', {});
   }
+
 
   displayTotalPrice() {
     let sum = 0;
