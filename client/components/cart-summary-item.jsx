@@ -3,7 +3,6 @@ import React from 'react';
 export default class CartSummaryItem extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.handleCartItemDelete = this.handleCartItemDelete.bind(this)
   }
 
@@ -22,7 +21,7 @@ export default class CartSummaryItem extends React.Component {
           <h3>{this.props.item.name}</h3>
           <h5 className="text-secondary">{'$' + (this.props.item.price / 100).toFixed(2)}</h5>
           <p>{this.props.item.shortDescription}</p>
-          <button type='button' onClick={this.handleCartItemDelete}>Remove</button>
+          <button type='button' className="btn btn-secondary" onClick={this.handleCartItemDelete}>Remove</button>
         </div>
       </div>
     );
