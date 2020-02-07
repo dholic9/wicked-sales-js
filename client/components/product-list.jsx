@@ -31,34 +31,48 @@ export default class ProductList extends React.Component {
     return (
       <React.Fragment>
         <div className="row text-center justify-content-center mb-4">
+          <h1><u>Featured</u></h1>
+        </div>
 
-
-          <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+        <div className="row justify-content-center align-items-center carousel mb-4">
+          <div id="carouselExampleIndicators" className="carousel slide" data-interval="4500" data-ride="carousel">
             <ol className="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
             </ol>
-            <div className="carousel-inner">
+            <div className="carousel-inner text-center">
+              <div className="carousel-item">
+                <img className="d-block w-10 carousel-pic" src="/images/panda.jpg" alt="First slide" />
+              </div>
               <div className="carousel-item active">
-                <img height="400px" className="d-block w-10 carousel-pic" src="/images/shamwow.jpg" alt="First slide"/>
-    </div>
-                <div className="carousel-item">
-                <img height="400px" className="d-block w-10 carousel-pic" src="/images/wax-vac.jpg" alt="Second slide"/>
-    </div>
-                  <div className="carousel-item">
-                <img height="400px" className="d-block w-10 carousel-pic" src="/images/shake-weight.jpg" alt="Third slide"/>
-    </div>
-                  </div>
-                  <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                  </a>
-                  <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                  </a>
-                </div>
+                <img className="d-block w-10 carousel-pic" src="/images/one2miniwhite.png" alt="Second slide"/>
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-10 carousel-pic" src="/images/one2miniwhite-1.jpg" alt="Third slide"/>
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-10 carousel-pic" src="/images/ducky-mecha.jpg" alt="Fourth slide"/>
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-10 carousel-pic" src="/images/sakura.jpg" alt="Fifth slide" />
+              </div>
+              <div className="carousel-item">
+                <img className="d-block w-10 carousel-pic" src="/images/anne-pro2white.jpg" alt="Sixth slide" />
+              </div>
+            </div>
+            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="sr-only">Previous</span>
+            </a>
+            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="sr-only">Next</span>
+            </a>
+          </div>
 
 
 

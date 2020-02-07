@@ -18,7 +18,7 @@ export default class Header extends React.Component {
   render() {
     const cartItemCount = this.props.cartItemCount;
     return (
-      <nav className="navbar align-middle  text-white navbar-expand-lg">
+      <nav className="navbar align-middle   navbar-expand-lg">
         <h3 className="home-button" onClick={this.handleBackToHomeClick}>$Wicked Sales</h3>
         <div onClick={this.handleCartView} className="cart">
           <p className="m-0 cart-item-number">{cartItemCount === 1

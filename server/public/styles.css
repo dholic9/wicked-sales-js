@@ -5,7 +5,9 @@ body{
 
 .navbar{
   height:80px;
-  background-color: rgba(0, 0, 0, 0.9)
+  background-color: rgb(159, 61, 230);
+  box-shadow: 0px 11px 35px 2px rgba(0,0,0,0.14);
+  color: white;
 }
 .home-button{
   cursor: pointer;
@@ -31,6 +33,9 @@ body{
 .card {
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+}
+.card:hover{
+  border: solid 2px rgba(0, 0, 0, 0.31)
 }
 .card-detail {
   padding-left: 15%;
@@ -79,6 +84,12 @@ body{
   margin-left: 1.5rem;
 }
 
+.carousel-pic {
+  object-fit: cover;
+  width: 63vw;
+  height: 50vh;
+}
+
 /**    Iphone6/7/8 landscape    */
 @media screen and (max-width: 750px) {
   .card-body {
@@ -96,9 +107,7 @@ body{
     padding: 0;
   }
 }
-.carousel-pic {
-  object-fit: cover;
-}
+
 
 
 /**    Iphone6/7/8 portrait    */
