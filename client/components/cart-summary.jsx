@@ -37,7 +37,7 @@ export default class CartSummary extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container fadeIn">
         <div className="row">
           <div className="text-secondary backButton mb-2">
             <span>

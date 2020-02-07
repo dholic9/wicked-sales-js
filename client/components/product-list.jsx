@@ -35,7 +35,7 @@ export default class ProductList extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="row justify-content-center align-items-center carousel mb-4">
+        <div className="row justify-content-center align-items-center carousel longFadeIn mb-4">
           <div id="carouselExampleIndicators" className="carousel slide" data-interval="5500" data-ride="carousel">
             <ol className="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
@@ -78,7 +78,7 @@ export default class ProductList extends React.Component {
         <div className="row mb-5">
           {productsArray.map(product => {
             return (
-              <div key={product.productId} className="product-card col-12 col-sm-6 col-md-4 mb-3">
+              <div key={product.productId} className=" fadeIn product-card col-12 col-sm-6 col-md-4 mb-3">
                 <ProductListItem
                   setView={this.props.setView}
                   name={product.name}
