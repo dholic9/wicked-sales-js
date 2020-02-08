@@ -14,7 +14,7 @@ A full stack Node.js and React shopping cart app.
 
 ## Live Demo
 
-Try the application live at 
+Try the application live at https://store.davidjinhong.com/
 
 ## Features
 
