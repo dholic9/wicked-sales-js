@@ -14,7 +14,7 @@ A full stack Node.js and React shopping cart app.
 
 ## Live Demo
 
-Try the application live at https://store.davidjinhong.com/
+Try the application live at [https://store.davidjinhong.com](https://store.davidjinhong.com)
 
 ## Features
 
@@ -26,7 +26,7 @@ Try the application live at https://store.davidjinhong.com/
 
 ## Preview
 
-![alt text](/server/public/images/Preview.png "Logo Title Text 1")
+![wicked-sales](/server/public/images/Preview.png)
 
 ## Development
 
