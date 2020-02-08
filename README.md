@@ -26,7 +26,7 @@ Try the application live at https://store.davidjinhong.com/
 
 ## Preview
 
-
+![alt text](/server/public/images/Preview.png "Logo Title Text 1")
 
 ## Development
 
