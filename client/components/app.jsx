@@ -111,7 +111,6 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('placedorder data: ', data);
         this.setState({
           cart: [],
           view: {

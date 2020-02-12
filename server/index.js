@@ -205,11 +205,8 @@ app.post('/api/cart', (req, res, next) => {
 
     db.query(orderSql, values)
       .then( result => {
-        if (result.rows.length>1){
-          delete req.session.cartId
-        }
+        req.session.destroy();
         res.status(201).json(result.rows[0])
-
       })
   })
 
