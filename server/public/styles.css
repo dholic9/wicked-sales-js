@@ -82,7 +82,6 @@ body{
 .total-price{
   display: flex;
   float: left;
-
   right: 10%;
 }
 .cart-item-detail{
@@ -90,7 +89,7 @@ body{
 }
 
 .carousel-pic {
-  object-fit: contain;
+  object-fit: cover;
   width: 80vw;
   height: 57vh;
   cursor: pointer;
