@@ -90,7 +90,7 @@ body{
 }
 
 .carousel-pic {
-  object-fit: cover;
+  object-fit: contain;
   width: 80vw;
   height: 57vh;
   cursor: pointer;
@@ -154,19 +154,25 @@ body{
   .cart-item-detail {
     margin: 0
   }
+  .title {
+    font-size: 1.3rem;
+  }
   .carousel-pic{
     object-fit: contain;
     height: 25vh;
     width:100%;
   }
+  .cart {
+    justify-content: flex-end;
+  }
   .cart-pic{
   object-fit: contain;
   width: 100%;
   height: 25vh;
-}
+  }
 }
 
-
+/**     IPAD     */
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {

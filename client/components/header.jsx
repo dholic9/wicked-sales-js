@@ -18,17 +18,17 @@ export default class Header extends React.Component {
   render() {
     const cartItemCount = this.props.cartItemCount;
     return (
-      <nav className="navbar align-middle   navbar-expand-lg">
-        <div className="home d-flex align-items-center flex-row">
-          <img className="icon" src="/images/key.svg" alt=""/>
-          <h3 className="home-button" onClick={this.handleBackToHomeClick}>Mechanical Keys</h3>
+      <nav className="navbar align-middle navbar-expand-lg">
+        <div className="home-button d-flex align-items-center flex-row" onClick={this.handleBackToHomeClick}>
+          <img className="icon" src="/images/key.svg"/>
+          <h3 className="home-button title">Mechanical Keys</h3>
         </div>
 
-        <div onClick={this.handleCartView} className="cart">
+        <div onClick={this.handleCartView} className="cart pb-1">
           <p className="m-0 cart-item-number">{cartItemCount === 1
             ? cartItemCount + '  Item'
             : cartItemCount + '  Items'}</p>
-          <i className="fas mt-1 mx-2 fa-shopping-cart"></i>
+          <i className="fas mt-1 mx-2 fa-shopping-cart "></i>
         </div>
       </nav>
     );
