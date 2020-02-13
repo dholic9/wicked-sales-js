@@ -39,10 +39,11 @@ export default class ProductDetails extends React.Component {
         </div>
 
         <div className="row card-body ">
-          <div className="product-detail-image text-center col-sm-12 col-md-5">
+          <div className="product-detail-image text-center col-sm-12 col-md-5 p-0 mb-4">
             <img className="card-detail-image" src={this.state.product
               ? this.state.product.image
-              : 'loading'} alt=""/>
+              : 'loading'} alt=""
+            />
           </div>
           <div className="col-md-7 col-sm-12 card-detail">
             <h2>{this.state.product
