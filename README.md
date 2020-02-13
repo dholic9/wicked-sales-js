@@ -26,7 +26,7 @@ Try the application live at [https://store.davidjinhong.com](https://store.david
 
 ## Preview
 
-![wicked-sales](/server/public/images/Preview.png)
+![wicked-sales](/server/public/images/preview2.png)
 
 ## Development
 
