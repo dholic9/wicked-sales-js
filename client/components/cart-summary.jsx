@@ -36,7 +36,6 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-    console.log(this.props.Array)
     return (
       <div className="container fadeIn">
         <div className="row">
