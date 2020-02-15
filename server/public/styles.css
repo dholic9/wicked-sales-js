@@ -38,7 +38,7 @@ body{
   cursor: pointer;
 }
 .card-detail {
-  padding-left: 15%;
+  /* padding-left: 15%; */
 }
 .card-detail-image {
   height: 300px;
@@ -175,5 +175,8 @@ and (max-device-width : 1024px) {
   .carousel-pic {
     object-fit: contain;
     width: 100%;
+  }
+  .card-detail{
+    padding: 0%;
   }
 }
