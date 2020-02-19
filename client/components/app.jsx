@@ -17,7 +17,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'catalog',
+        name: 'cart',
         params: {}
       },
       cart: []
@@ -80,6 +80,7 @@ export default class App extends React.Component {
     fetch('/api/cart')
       .then(res => res.json())
       .then(data => {
+        console.log('cart data', data)
         this.setState({ cart: data });
       });
   }

@@ -11,6 +11,8 @@ export default class CartSummary extends React.Component {
 
   displayCartItems() {
     var cartArray = this.props.Array;
+    console.log('cartarray', cartArray)
+    console.log('cart-summary props: ', this.props)
     return cartArray.map(item => {
       return (
         <CartSummaryItem
