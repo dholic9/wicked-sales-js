@@ -13,7 +13,11 @@ export default class CartSummary extends React.Component {
     var cartArray = this.props.Array;
     return cartArray.map(item => {
       return (
-        <CartSummaryItem key={item.cartItemId} delete={this.props.delete} item={item}></CartSummaryItem>
+        <CartSummaryItem
+          key={item.cartItemId}
+          delete={this.props.delete}
+          item={item}>
+        </CartSummaryItem>
       );
     });
   }

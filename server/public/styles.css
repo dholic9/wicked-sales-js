@@ -16,6 +16,9 @@ body{
 .home-button{
   cursor: pointer;
 }
+.clickable {
+  cursor: pointer;
+}
 .col-3{
   max-width: 24% ;
 }

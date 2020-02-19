@@ -80,6 +80,7 @@ export default class App extends React.Component {
     fetch('/api/cart')
       .then(res => res.json())
       .then(data => {
+        console.log('data', data);
         this.setState({ cart: data });
       });
   }

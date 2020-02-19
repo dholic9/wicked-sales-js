@@ -33,7 +33,7 @@ export default class ProductDetails extends React.Component {
   render() {
     return (
       <div className="product-detail mx-4 mb-5 fadeIn">
-        <div className="row flex-row">
+        <div className="row flex-row clickable">
           <i onClick={this.handleCatalogClick} className="fas fa-angle-left d-flex text-secondary my-4 mr-2 ml-2"></i>
           <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         </div>
