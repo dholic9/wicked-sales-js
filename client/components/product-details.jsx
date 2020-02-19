@@ -37,7 +37,6 @@ export default class ProductDetails extends React.Component {
           <i onClick={this.handleCatalogClick} className="fas fa-angle-left d-flex text-secondary my-4 mr-2 ml-2"></i>
           <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         </div>
-
         <div className="row card-body ">
           <div className="product-detail-image text-center col-sm-12 col-lg-7 p-0 pr-3 mb-4">
             <img className="card-detail-image" src={this.state.product
