@@ -16,6 +16,9 @@ body{
 .home-button{
   cursor: pointer;
 }
+.clickable {
+  cursor: pointer;
+}
 .col-3{
   max-width: 24% ;
 }
@@ -38,11 +41,11 @@ body{
   cursor: pointer;
 }
 .card-detail {
-  padding-left: 15%;
+  /* padding-left: 15%; */
 }
 .card-detail-image {
   height: 300px;
-  width: 125%;
+  width: 100%;
   object-fit: contain;
 }
 .product-detail{
@@ -76,7 +79,7 @@ body{
 }
 .cart-pic{
   object-fit: contain;
-  width: 29vw;
+  width: 100%;
   height: 30vh;
 }
 .total-price{
@@ -107,6 +110,8 @@ body{
   to   { opacity: 1; }
 }
 
+
+/**      MEDIA QUERIES    */
 /**    Iphone6/7/8/X landscape    */
 @media screen and (max-width: 850px) {
   .card-body {
@@ -114,7 +119,6 @@ body{
   }
   .card-detail-image {
     height: 300px;
-    width: 125vmin;
   }
   .card-detail {
     padding: 0;
@@ -176,5 +180,8 @@ and (max-device-width : 1024px) {
   .carousel-pic {
     object-fit: contain;
     width: 100%;
+  }
+  .card-detail{
+    padding: 0%;
   }
 }
