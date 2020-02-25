@@ -15,7 +15,6 @@ export default class ProductDetails extends React.Component {
     fetch('/api/products/' + this.productId)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         this.setState({ product: data });
       })
       .catch(err => {
