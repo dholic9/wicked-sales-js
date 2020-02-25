@@ -105,6 +105,13 @@ body{
   animation: fadein 0.45s ease-in-out;
 }
 
+.continue-button {
+  width: 100%;
+}
+.go-to-cart-button {
+  width: 100%;
+}
+
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }

@@ -98,8 +98,9 @@ export default class ProductList extends React.Component {
             );
           })}
         </div>
-        <div className={this.state.modalShown ? "modal  start-modal text-center" : "modal hidden start-modal text-center"}>
-
+        <div className={this.state.modalShown
+                        ? "modal longFadeIn start-modal text-center"
+                        : "modal longFadeIn hidden start-modal text-center"}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body flex-column justify-content-center">
@@ -107,9 +108,7 @@ export default class ProductList extends React.Component {
                 <p>Mechanical Keys is a MERN stack content management app created for demonstation purposes.
                     By clicking on the Accept button below, you accept that no real payments will be made, and
                     to not use any personal information when checking out, such as personal credit card information, addresses, and name.
-
                 </p>
-
                 <button className="btn btn-danger w-100" onClick={this.handleModalView} data-dismiss="modal">Accept</button>
               </div>
             </div>
