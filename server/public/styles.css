@@ -122,7 +122,9 @@ body{
 .hidden {
   display: none;
 }
-
+.modal-body {
+  padding: 2rem;
+}
 
 
 
