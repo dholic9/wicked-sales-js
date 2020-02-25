@@ -5,9 +5,11 @@ export default class ProductList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      modalShown: true,
     };
     this.handleCarouselClick = this.handleCarouselClick.bind(this)
+    this.handleModalClose = this.handleModalClose.bind(this)
   }
 
   getProducts() {
@@ -31,7 +33,7 @@ export default class ProductList extends React.Component {
   }
 
   handleModalClose(event) {
-
+    this.setState({modalShown: false})
   }
 
   render() {
@@ -95,14 +97,15 @@ export default class ProductList extends React.Component {
             );
           })}
         </div>
-        <div className="modal hidden start-modal text-center">
+        <div className={this.state.modalShown ? "modal start-modal text-center" : "modal hidden start-modal text-center"}>
+
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body flex-column justify-content-center">
-                <h5 className='mb-2 '>Welcome to Mechanical Keys</h5>
+                <h3 className='mb-2 '><u>Welcome to Mechanical Keys</u></h3>
                 <p>Mechanical Keys is a MERN stack content management app created for demonstation purposes.
                     By clicking on the Accept button below, you accept that no real payments will be made, and
-                    to not use any personal information when checking out, such as
+                    to not use any personal information when checking out, such as personal credit card information, addresses, and name.
 
                 </p>
 
