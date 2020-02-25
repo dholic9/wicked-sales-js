@@ -20,12 +20,14 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      showModal: true,
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.deleteFromCart = this.deleteFromCart.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this)
   }
 
   componentDidMount() {
@@ -46,11 +48,18 @@ export default class App extends React.Component {
     });
   }
 
+  handleModalClose(event) {
+    this.setState({ showModal: false })
+  }
+
   showView() {
     if (this.state.view.name === 'catalog') {
       return (
         <ProductList
-          setView={this.setView} />
+          setView={this.setView}
+          showModal={this.state.showModal}
+          handleModalClose={this.handleModalClose}
+        />
       );
     } else if (this.state.view.name === 'details') {
       return (

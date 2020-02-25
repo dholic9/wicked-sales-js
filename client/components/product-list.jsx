@@ -6,10 +6,10 @@ export default class ProductList extends React.Component {
     super(props);
     this.state = {
       products: [],
-      modalShown: true,
+      modalShown: this.props.showmodal
     };
-    this.handleCarouselClick = this.handleCarouselClick.bind(this)
-    this.handleModalClose = this.handleModalClose.bind(this)
+    this.handleCarouselClick = this.handleCarouselClick.bind(this);
+    this.handleModalView = this.handleModalView.bind(this)
   }
 
   getProducts() {
@@ -32,13 +32,21 @@ export default class ProductList extends React.Component {
     this.props.setView('details', {productId: clickedId})
   }
 
-  handleModalClose(event) {
-    this.setState({modalShown: false})
+  handleModalView(){
+    this.props.handleModalClose();
+    this.componentDidUpdate
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.showModal !== prevProps.showModal) {
+      this.fetchData(this.props.showModal);
+    }
   }
 
   render() {
     const productsArray = this.state.products;
-
+    console.log(this.props)
     return (
       <React.Fragment>
         <div className="row justify-content-center align-items-center carousel longFadeIn mb-4">
@@ -97,19 +105,19 @@ export default class ProductList extends React.Component {
             );
           })}
         </div>
-        <div className={this.state.modalShown ? "modal start-modal text-center" : "modal hidden start-modal text-center"}>
+        <div className={this.state.modalShown ? "modal hidden start-modal text-center" : "modal  start-modal text-center"}>
 
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body flex-column justify-content-center">
-                <h3 className='mb-2 '><u>Welcome to Mechanical Keys</u></h3>
+                <h3 className='mb-3 '><u>Welcome to Mechanical Keys</u></h3>
                 <p>Mechanical Keys is a MERN stack content management app created for demonstation purposes.
                     By clicking on the Accept button below, you accept that no real payments will be made, and
                     to not use any personal information when checking out, such as personal credit card information, addresses, and name.
 
                 </p>
 
-                <button className="btn btn-danger w-100" onClick={this.handleModalClose} data-dismiss="modal">Accept</button>
+                <button className="btn btn-danger w-100" onClick={this.handleModalView} data-dismiss="modal">Accept</button>
               </div>
             </div>
           </div>
