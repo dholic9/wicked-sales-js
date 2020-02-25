@@ -56,7 +56,8 @@ export default class ProductDetails extends React.Component {
               : 'loading'}</p>
             <button onClick={this.handleAddCart} className="btn btn-primary" type="button">Add to Cart</button>
           </div>
-          <div className="col-12 detail-long">
+          <div className="col-12 border-top pt-4 detail-long">
+            <h4><u>Product Description:</u></h4>
             <p>{this.state.product
               ? this.state.product.longDescription
               : 'loading'}</p>
