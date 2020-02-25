@@ -6,7 +6,7 @@ export default class ProductList extends React.Component {
     super(props);
     this.state = {
       products: [],
-      modalShown: this.props.showmodal
+      modalShown: this.props.showModal
     };
     this.handleCarouselClick = this.handleCarouselClick.bind(this);
     this.handleModalView = this.handleModalView.bind(this)
@@ -33,20 +33,15 @@ export default class ProductList extends React.Component {
   }
 
   handleModalView(){
-    this.props.handleModalClose();
-    this.componentDidUpdate
+    this.props.handleModalClose()
+    this.setState({modalShown: false});
   }
 
-  componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
-    if (this.props.showModal !== prevProps.showModal) {
-      this.fetchData(this.props.showModal);
-    }
-  }
 
   render() {
     const productsArray = this.state.products;
-    console.log(this.props)
+    console.log('product props', this.props)
+    console.log('state', this.state)
     return (
       <React.Fragment>
         <div className="row justify-content-center align-items-center carousel longFadeIn mb-4">
@@ -105,7 +100,7 @@ export default class ProductList extends React.Component {
             );
           })}
         </div>
-        <div className={this.state.modalShown ? "modal hidden start-modal text-center" : "modal  start-modal text-center"}>
+        <div className={this.state.modalShown ? "modal  start-modal text-center" : "modal hidden start-modal text-center"}>
 
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
