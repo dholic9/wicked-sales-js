@@ -25,7 +25,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
-    this.deleteFromCart = this.deleteFromCart.bind(this)
+    this.deleteFromCart = this.deleteFromCart.bind(this);
   }
 
   componentDidMount() {
@@ -121,17 +121,17 @@ export default class App extends React.Component {
       });
   }
 
-  deleteFromCart(cartItem){
-    const cartItemId = cartItem.cartItemId
+  deleteFromCart(cartItem) {
+    const cartItemId = cartItem.cartItemId;
     fetch(`/api/cart/${cartItemId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       body: JSON.stringify(cartItemId)
     })
-    .then(res => {
-      const stateCart = [...this.state.cart];
-      const result = stateCart.filter(index => index.cartItemId !== cartItemId);
-      this.setState({ cart: result})
-    })
+      .then(res => {
+        const stateCart = [...this.state.cart];
+        const result = stateCart.filter(index => index.cartItemId !== cartItemId);
+        this.setState({ cart: result });
+      });
   }
 
   render() {

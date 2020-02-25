@@ -30,6 +30,10 @@ export default class ProductList extends React.Component {
     this.props.setView('details', {productId: clickedId})
   }
 
+  handleModalClose(event) {
+
+  }
+
   render() {
     const productsArray = this.state.products;
 
@@ -90,6 +94,22 @@ export default class ProductList extends React.Component {
               </div>
             );
           })}
+        </div>
+        <div className="modal hidden start-modal text-center">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-body flex-column justify-content-center">
+                <h5 className='mb-2 '>Welcome to Mechanical Keys</h5>
+                <p>Mechanical Keys is a MERN stack content management app created for demonstation purposes.
+                    By clicking on the Accept button below, you accept that no real payments will be made, and
+                    to not use any personal information when checking out, such as
+
+                </p>
+
+                <button className="btn btn-danger w-100" onClick={this.handleModalClose} data-dismiss="modal">Accept</button>
+              </div>
+            </div>
+          </div>
         </div>
       </React.Fragment>
     );
