@@ -49,7 +49,6 @@ export default class App extends React.Component {
   }
 
   handleModalClose(event) {
-    console.log('app fired')
     this.setState({ showModal: false })
   }
 

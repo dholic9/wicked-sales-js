@@ -40,8 +40,6 @@ export default class ProductList extends React.Component {
 
   render() {
     const productsArray = this.state.products;
-    console.log('product props', this.props)
-    console.log('state', this.state)
     return (
       <React.Fragment>
         <div className="row justify-content-center align-items-center carousel longFadeIn mb-4">
