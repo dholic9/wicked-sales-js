@@ -30,7 +30,8 @@ export default class ProductDetails extends React.Component {
   }
 
   closeModal(){
-    this.setState({showModal: false})
+    this.setState({showModal: false});
+    this.props.setView('catalog', {})
   }
 
   goToCart(){
@@ -90,7 +91,7 @@ export default class ProductDetails extends React.Component {
                     <button className="btn btn-primary continue-button" onClick={this.closeModal} data-dismiss="modal">Continue Shopping</button>
                   </div>
                   <div className="col-6">
-                    <button className="btn btn-danger  go-to-cart-button"  onClick={this.goToCart} data-dismiss="modal">Go To Cart</button>
+                    <button className="btn btn-danger  go-to-cart-button"  onClick={this.goToCart} data-dismiss="modal">View Cart</button>
                   </div>
                 </div>
               </div>
