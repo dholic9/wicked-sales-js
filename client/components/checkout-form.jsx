@@ -45,6 +45,7 @@ export default class CheckoutForm extends React.Component {
       shippingAddress: this.state.shippingAddress
     };
     this.props.placeOrder(orderInformation);
+    this.props.showModal();
   }
 
   displayTotalPrice() {
@@ -56,8 +57,6 @@ export default class CheckoutForm extends React.Component {
   }
 
   render() {
-    console.log('form props: ', this.props);
-    console.log('form state', this.state)
     return (
       <div className="row flex-column mt-4 px-4 ">
         <div className="col-12  p-0">

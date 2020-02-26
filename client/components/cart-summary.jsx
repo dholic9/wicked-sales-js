@@ -28,7 +28,6 @@ export default class CartSummary extends React.Component {
     this.props.setView('catalog', {});
   }
 
-
   displayTotalPrice() {
     let sum = 0;
     this.props.Array.map(index => {

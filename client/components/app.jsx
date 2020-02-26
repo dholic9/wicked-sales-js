@@ -28,7 +28,9 @@ export default class App extends React.Component {
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.deleteFromCart = this.deleteFromCart.bind(this);
-    this.handleModalClose = this.handleModalClose.bind(this)
+    this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleCheckoutModalClose = this.handleCheckoutModalClose.bind(this);
+    this.handleShowCheckoutModal = this.handleShowCheckoutModal.bind(this);
   }
 
   componentDidMount() {
@@ -49,10 +51,6 @@ export default class App extends React.Component {
     });
   }
 
-  handleModalClose(event) {
-    this.setState({ showModal: false })
-  }
-
   showView() {
     if (this.state.view.name === 'catalog') {
       return (
@@ -60,6 +58,8 @@ export default class App extends React.Component {
           setView={this.setView}
           showModal={this.state.showModal}
           handleModalClose={this.handleModalClose}
+          showCheckoutModal={this.state.showCheckoutModal}
+          handleCheckoutModalClose={this.handleCheckoutModalClose}
         />
       );
     } else if (this.state.view.name === 'details') {
@@ -81,7 +81,8 @@ export default class App extends React.Component {
         <CheckoutForm
           setView={this.setView}
           placeOrder={this.placeOrder}
-          cart={this.state.cart} />
+          cart={this.state.cart}
+          showModal={this.handleShowCheckoutModal}/>
       );
     }
   }
@@ -121,9 +122,6 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
-
-          console.log('place order data: ', data);
-
         this.setState({
           cart: [],
           view: {
@@ -147,6 +145,18 @@ export default class App extends React.Component {
       });
   }
 
+  handleModalClose(event) {
+    this.setState({ showModal: false })
+  }
+
+  handleShowCheckoutModal() {
+    this.setState({ showCheckoutModal: true})
+  }
+
+  handleCheckoutModalClose() {
+    this.setState({ showCheckoutModal: false });
+  }
+
   render() {
     return (
       <Router>
@@ -160,7 +170,6 @@ export default class App extends React.Component {
           </div>
         </div>
       </Router>
-
     );
   }
 }
