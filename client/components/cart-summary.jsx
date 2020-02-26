@@ -53,20 +53,24 @@ export default class CartSummary extends React.Component {
           <h1>My Cart</h1>
         </div>
 
-        {this.displayCartItems()}
+        {this.props.Array.length === 0
+          ? <h3>Your Shopping Cart is empty.</h3>
+          : this.displayCartItems()}
 
         <div className="row justify-content-between mb-4 pb-4 pt-2">
           <div className="flex-row">
             <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
           </div>
           <div>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={this.goToCheckout}
-            >
-              Checkout
-            </button>
+            {this.props.Array.length === 0
+              ? ''
+              : <button
+                type="button"
+                className="btn btn-primary"
+                onClick={this.goToCheckout}
+              >
+                Checkout
+              </button>}
           </div>
         </div>
       </div>
