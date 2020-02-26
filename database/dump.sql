@@ -253,6 +253,7 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 46	20	4	8900
 47	20	5	8900
 49	20	1	9900
+51	21	2	11900
 \.
 
 
@@ -261,26 +262,27 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-1	2020-01-14 22:48:01.619062+00
-2	2020-01-14 22:48:36.64083+00
-3	2020-01-14 23:02:10.478019+00
-4	2020-01-14 23:02:48.781542+00
-5	2020-01-14 23:03:29.367628+00
-6	2020-01-14 23:03:47.988372+00
-7	2020-01-14 23:04:46.06274+00
-8	2020-01-14 23:05:31.839023+00
-9	2020-01-14 23:07:48.44041+00
-10	2020-01-14 23:09:51.478537+00
-11	2020-01-14 23:18:41.111105+00
-12	2020-01-14 23:23:33.481771+00
-13	2020-01-14 23:24:32.863675+00
-14	2020-01-14 23:26:05.285844+00
-15	2020-01-14 23:33:44.332635+00
-16	2020-01-15 01:19:41.879794+00
-17	2020-01-15 18:12:05.43415+00
-18	2020-02-05 22:15:10.204288+00
-19	2020-02-07 02:46:51.088522+00
-20	2020-02-07 21:44:10.708495+00
+1	2020-01-14 14:48:01.619062-08
+2	2020-01-14 14:48:36.64083-08
+3	2020-01-14 15:02:10.478019-08
+4	2020-01-14 15:02:48.781542-08
+5	2020-01-14 15:03:29.367628-08
+6	2020-01-14 15:03:47.988372-08
+7	2020-01-14 15:04:46.06274-08
+8	2020-01-14 15:05:31.839023-08
+9	2020-01-14 15:07:48.44041-08
+10	2020-01-14 15:09:51.478537-08
+11	2020-01-14 15:18:41.111105-08
+12	2020-01-14 15:23:33.481771-08
+13	2020-01-14 15:24:32.863675-08
+14	2020-01-14 15:26:05.285844-08
+15	2020-01-14 15:33:44.332635-08
+16	2020-01-14 17:19:41.879794-08
+17	2020-01-15 10:12:05.43415-08
+18	2020-02-05 14:15:10.204288-08
+19	2020-02-06 18:46:51.088522-08
+20	2020-02-07 13:44:10.708495-08
+21	2020-02-25 21:51:51.773006-08
 \.
 
 
@@ -289,7 +291,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 --
 
 COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
-1	20	ad	asdf	asdf	2020-02-07 22:05:47.950621+00
+1	20	ad	asdf	asdf	2020-02-07 14:05:47.950621-08
 \.
 
 
@@ -299,11 +301,11 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
 6	Ducky MIYA Pro Panda Mechanical Keyboard	13500	/images/panda.jpg	White LED 65% Dye Sub PBT Mechanical Keyboard	MIYA Pro Panda\nThe Ducky MIYA Pro Panda Edition is a compact gaming keyboard in the TKL-Mini format that uses just 65% percent of the space of a full keyboard. It is based on the Varmilo VA68M and offers an impressive and unique design in black, white, green and even includes a panda motif on the spacebar! The keyboard blends unique looks with a white LED backlight and premium Cherry MX switches. Due to its diminutive dimensions, the Ducky MIYA Pro Panda Edition is incredibly portable as well.
-5	Obinslab Anne Pro 2 White	8900	/images/anne-pro2white.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	Features\nCan be used wired over USB-C or wirelessly over Bluetooth 4.0\nLarge 1900 mah battery with Built-in on/off switch to conserve battery power\nObinsLab Starter companion computer software for programming keyboard layout, function keys, lighting effects, battery life monitoring, macros, and updating firmware\nBluetooth functionality is compatible with Windows, Mac, Linux, iOS, and Android.
-4	Obinslab Anne Pro 2 Black	8900	/images/anne-pro2.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	Features\nCan be used wired over USB-C or wirelessly over Bluetooth 4.0\nLarge 1900 mah battery with Built-in on/off switch to conserve battery power\nObinsLab Starter companion computer software for programming keyboard layout, function keys, lighting effects, battery life monitoring, macros, and updating firmware\nBluetooth functionality is compatible with Windows, Mac, Linux, iOS, and Android.
-1	Ducky One 2 Mini Pure White	9900	/images/one2miniwhite.png	RGB LED 60% Double Shot PBT Mechanical Keyboard	Features:\n10 additional PBT Double Shot colorful keycaps (Random color)\nIncludes Ducky Year of the Pig Limited Edition spacebar\nBrand new bezel design and Dual layer PCB\nPBT double - shot seamless keycaps\nSupports Ducky Macro 2.0, the most powerful hardware available in the market\n3 level adjustable feet and Detachable USB Type - C cable\nBrand new RGB lighting modes and mode architecture\n60% size, lightweight and extremely portable\n
 2	Ducky Mecha Mini	11900	/images/ducky-mecha.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	The Ducky One 2 Mini Mecha is everything you love about the classic One 2 Mini wrapped in one of the most beautifully balanced frames ever used in a keyboard. The Mechas ground-breaking cast aluminum frame offers stunning aesthetics with curves and features that bulky CNC machined Aluminum frames can only dream of. The weight of the frame is substantial but also balanced and not just heavy for the sake of being heavy. You have to feel it to believe it.\n\n\nThe Mecha comes equipped with PBT double shot seamless keycaps with side laser engraving. It has a smaller size, but no functions have been sacrificed. Supports Ducky Macro V2.0 and Mouse control function.\n\n\nTo stand out in the crowd we chose to use PBT seamless double-shot keycaps. It is designed and engineered in a way to provide the user with the best durability and typing experience. Varieties of colorways available.\n\n\nDetachable USB Type-C cable provides convenience to users. The Mecha uses USB HID with the highest frequency of 1000Hz polling rate, meaning the keyboard is sending its input signal(s) to your PC 1000 times per second. This feature minimizes the delay of when the keys are being pressed and signal received by the computer.\n\n\nEvery Ducky One 2 Mini Mecha comes with 10 additional PBT Double-Shot Colorful keycaps (Random color)
 3	Ducky MIYA Pro Sakura Mechanical Keyboard	11900	/images/sakura.jpg	LED 65% Dye Sub PBT Mechanical Keyboard	Sakura Pattern Mechanical Keyboard, Perfect For Girl Gaming Lover\nFn+ Keys to Trigger the Side-engraved Keys Function\nChange Functions Between "1" to "+" and "F1"to "F12" Through Fn+ Pagedown and Fn+ Pageup\nSuspended Keycaps\nN-key Rollover\nType-C Port, Seperate Keyboard and Cable Design\nWarmilo Profession Programmable Drive\nOriginal Cherry MX Black switches\nPBT Keycaps
+5	Obinslab Anne Pro 2 White	8900	/images/anne-pro2white.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	Can be used wired over USB-C or wirelessly over Bluetooth 4.0\nLarge 1900 mah battery with Built-in on/off switch to conserve battery power\nObinsLab Starter companion computer software for programming keyboard layout, function keys, lighting effects, battery life monitoring, macros, and updating firmware\nBluetooth functionality is compatible with Windows, Mac, Linux, iOS, and Android.
+4	Obinslab Anne Pro 2 Black	8900	/images/anne-pro2.jpg	RGB LED 60% Double Shot PBT Mechanical Keyboard	Can be used wired over USB-C or wirelessly over Bluetooth 4.0\nLarge 1900 mah battery with Built-in on/off switch to conserve battery power\nObinsLab Starter companion computer software for programming keyboard layout, function keys, lighting effects, battery life monitoring, macros, and updating firmware\nBluetooth functionality is compatible with Windows, Mac, Linux, iOS, and Android.
+1	Ducky One 2 Mini Pure White	9900	/images/one2miniwhite.png	RGB LED 60% Double Shot PBT Mechanical Keyboard	10 additional PBT Double Shot colorful keycaps (Random color)\nIncludes Ducky Year of the Pig Limited Edition spacebar\nBrand new bezel design and Dual layer PCB\nPBT double - shot seamless keycaps\nSupports Ducky Macro 2.0, the most powerful hardware available in the market\n3 level adjustable feet and Detachable USB Type - C cable\nBrand new RGB lighting modes and mode architecture\n60% size, lightweight and extremely portable\n
 \.
 
 
@@ -311,14 +313,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 50, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 51, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 20, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 21, true);
 
 
 --

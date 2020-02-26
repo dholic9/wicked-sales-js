@@ -30,18 +30,18 @@ export default class ProductList extends React.Component {
   }
 
   handleCarouselClick(event) {
-    let clickedId = event.target.getAttribute('data-id')
-    this.props.setView('details', {productId: clickedId})
+    const clickedId = event.target.getAttribute('data-id');
+    this.props.setView('details', { productId: clickedId });
   }
 
-  handleModalView(){
+  handleModalView() {
     this.props.handleModalClose();
     this.setState({ modalShown: false });
   }
 
-  handleCheckoutModalClose(){
+  handleCheckoutModalClose() {
     this.props.handleCheckoutModalClose();
-    this.setState({ showCheckoutModal: false })
+    this.setState({ showCheckoutModal: false });
   }
 
   render() {
@@ -59,22 +59,22 @@ export default class ProductList extends React.Component {
               <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
             </ol>
             <div className="carousel-inner text-center">
-              <div  className="carousel-item active">
+              <div className="carousel-item active">
                 <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" data-id="6" src="/images/panda.jpg" alt="First slide" />
               </div>
-              <div  className="carousel-item ">
+              <div className="carousel-item ">
                 <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" data-id="1" src="/images/one2miniwhite.png" alt="Second slide"/>
               </div>
-              <div  className="carousel-item">
+              <div className="carousel-item">
                 <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/one2miniwhite-1.jpg" data-id="1" alt="Third slide"/>
               </div>
-              <div  className="carousel-item">
+              <div className="carousel-item">
                 <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/ducky-mecha.jpg" data-id="2" alt="Fourth slide"/>
               </div>
-              <div  className="carousel-item">
+              <div className="carousel-item">
                 <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/sakura.jpg" data-id="3" alt="Fifth slide" />
               </div>
-              <div  className="carousel-item">
+              <div className="carousel-item">
                 <img onClick={this.handleCarouselClick} className="d-block w-10 carousel-pic" src="/images/anne-pro2white.jpg" data-id="5" alt="Sixth slide" />
               </div>
             </div>
@@ -105,8 +105,8 @@ export default class ProductList extends React.Component {
           })}
         </div>
         <div className={this.state.modalShown
-                        ? "modal longFadeIn start-modal text-center"
-                        : "modal longFadeIn hidden start-modal text-center"}>
+          ? 'modal longFadeIn hidden start-modal text-center'
+          : 'modal longFadeIn hidden start-modal text-center'}>
           <div className="  modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body flex-column justify-content-center">
@@ -121,12 +121,12 @@ export default class ProductList extends React.Component {
           </div>
         </div>
         <div className={this.state.showCheckoutModal
-                        ? "modal longFadeIn checkout-modal text-center"
-                        : "modal hidden longFadeIn  text-center"
-                        }>
+          ? 'modal longFadeIn checkout-modal text-center'
+          : 'modal hidden longFadeIn  text-center'
+        }>
           <div className={this.state.showCheckoutModal
-                          ? "modal-dialog  modal-dialog-centered"
-                          : "modal-dialog hidden modal-dialog-centered"}>
+            ? 'modal-dialog  modal-dialog-centered'
+            : 'modal-dialog hidden modal-dialog-centered'}>
             <div className="modal-content checkout-modal-style">
               <div className="modal-body p-4">
                 <h3 className="mb-4 ">Thank you for successfully checking out.</h3>
