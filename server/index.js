@@ -78,7 +78,10 @@ app.get('/api/cart', (req, res, next) => {
 
   db.query(sql, values)
     .then(result => {
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
       return res.status(200).json(result.rows);
     })
     .catch(err => next(err));
@@ -171,7 +174,7 @@ app.delete('/api/cart/:cartItemId', (req, res, next) => {
           DELETE FROM "cartItems"
               WHERE "cartItemId" = $1
               RETURNING *;
-    `;
+          `;
   const values = [cartItemId];
   db.query(sql, values)
     .then(response => {
@@ -185,7 +188,6 @@ app.post('/api/orders', (req, res, next) => {
   if (!req.session.cartId) {
     return res.status(400).json({ error: 'Invalid cart' });
   }
-
   if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
     return res.status(400).json({ error: 'Must fill out all input fields' });
   }

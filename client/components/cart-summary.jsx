@@ -69,7 +69,7 @@ export default class CartSummary extends React.Component {
                 className="btn btn-primary"
                 onClick={this.goToCheckout}
               >
-                Checkout
+                    Checkout
               </button>}
           </div>
         </div>
