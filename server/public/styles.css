@@ -134,6 +134,16 @@ body{
 }
 
 
+/**       CHECKOUT MODAL          */
+
+.checkout-modal {
+  display:flex;
+}
+.checkout-modal-style{
+  overflow: hidden;
+  border: 3px solid rgb(137, 59, 206);
+}
+
 
 /**      MEDIA QUERIES    */
 /**    Iphone6/7/8/X landscape    */

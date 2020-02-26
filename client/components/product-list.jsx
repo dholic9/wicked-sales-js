@@ -6,10 +6,12 @@ export default class ProductList extends React.Component {
     super(props);
     this.state = {
       products: [],
-      modalShown: this.props.showModal
+      modalShown: this.props.showModal,
+      showCheckoutModal: this.props.showCheckoutModal
     };
     this.handleCarouselClick = this.handleCarouselClick.bind(this);
-    this.handleModalView = this.handleModalView.bind(this)
+    this.handleModalView = this.handleModalView.bind(this);
+    this.handleCheckoutModalClose = this.handleCheckoutModalClose.bind(this);
   }
 
   getProducts() {
@@ -33,10 +35,14 @@ export default class ProductList extends React.Component {
   }
 
   handleModalView(){
-    this.props.handleModalClose()
-    this.setState({modalShown: false});
+    this.props.handleModalClose();
+    this.setState({ modalShown: false });
   }
 
+  handleCheckoutModalClose(){
+    this.props.handleCheckoutModalClose();
+    this.setState({ showCheckoutModal: false })
+  }
 
   render() {
     const productsArray = this.state.products;
@@ -101,7 +107,7 @@ export default class ProductList extends React.Component {
         <div className={this.state.modalShown
                         ? "modal longFadeIn start-modal text-center"
                         : "modal longFadeIn hidden start-modal text-center"}>
-          <div className="modal-dialog modal-dialog-centered">
+          <div className="  modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body flex-column justify-content-center">
                 <h3 className='mb-3 '><u>Welcome to Mechanical Keys</u></h3>
@@ -110,6 +116,21 @@ export default class ProductList extends React.Component {
                     to not use any personal information when checking out, such as personal credit card information, addresses, and name.
                 </p>
                 <button className="btn btn-danger w-100" onClick={this.handleModalView} data-dismiss="modal">Accept</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={this.state.showCheckoutModal
+                        ? "modal longFadeIn checkout-modal text-center"
+                        : "modal hidden longFadeIn  text-center"
+                        }>
+          <div className={this.state.showCheckoutModal
+                          ? "modal-dialog  modal-dialog-centered"
+                          : "modal-dialog hidden modal-dialog-centered"}>
+            <div className="modal-content checkout-modal-style">
+              <div className="modal-body p-4">
+                <h3 className="mb-4 ">Thank you for successfully checking out.</h3>
+                <button className="mt-4 btn w-100 btn-danger" onClick={this.handleCheckoutModalClose}>Close</button>
               </div>
             </div>
           </div>

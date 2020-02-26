@@ -38,11 +38,9 @@ export default class ProductDetails extends React.Component {
     this.props.setView('cart', {})
   }
 
-
   handleAddCart() {
     this.props.addToCart(this.state.product);
     this.setState({showModal: true})
-
   }
 
   render() {
