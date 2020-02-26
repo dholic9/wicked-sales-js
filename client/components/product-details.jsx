@@ -5,13 +5,13 @@ export default class ProductDetails extends React.Component {
     super(props);
     this.state = {
       product: null,
-      showModal: false,
+      showModal: false
     };
     this.productId = this.props.params.productId;
     this.handleCatalogClick = this.handleCatalogClick.bind(this);
     this.handleAddCart = this.handleAddCart.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.goToCart = this.goToCart.bind(this)
+    this.goToCart = this.goToCart.bind(this);
   }
 
   componentDidMount() {
@@ -29,18 +29,18 @@ export default class ProductDetails extends React.Component {
     this.props.setView('catalog', {});
   }
 
-  closeModal(){
-    this.setState({showModal: false});
-    this.props.setView('catalog', {})
+  closeModal() {
+    this.setState({ showModal: false });
+    this.props.setView('catalog', {});
   }
 
-  goToCart(){
-    this.props.setView('cart', {})
+  goToCart() {
+    this.props.setView('cart', {});
   }
 
   handleAddCart() {
     this.props.addToCart(this.state.product);
-    this.setState({showModal: true})
+    this.setState({ showModal: true });
   }
 
   render() {
@@ -78,8 +78,8 @@ export default class ProductDetails extends React.Component {
         </div>
 
         <div className={this.state.showModal
-          ? "modal longFadeIn start-modal text-center"
-          : "modal longFadeIn hidden start-modal text-center"}>
+          ? 'modal longFadeIn start-modal text-center'
+          : 'modal longFadeIn hidden start-modal text-center'}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content add-cart-modal align-items-center text-center justify-content-center">
               <div className="modal-body p-0  flex-column justify-content-center">
@@ -89,7 +89,7 @@ export default class ProductDetails extends React.Component {
                     <button className="btn btn-primary continue-button" onClick={this.closeModal} data-dismiss="modal">Continue Shopping</button>
                   </div>
                   <div className="col-6">
-                    <button className="btn btn-danger  go-to-cart-button"  onClick={this.goToCart} data-dismiss="modal">View Cart</button>
+                    <button className="btn btn-danger  go-to-cart-button" onClick={this.goToCart} data-dismiss="modal">View Cart</button>
                   </div>
                 </div>
               </div>

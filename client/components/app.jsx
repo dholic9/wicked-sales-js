@@ -22,7 +22,7 @@ export default class App extends React.Component {
       },
       cart: [],
       showModal: true,
-      showCheckoutModal: false,
+      showCheckoutModal: false
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
@@ -146,11 +146,11 @@ export default class App extends React.Component {
   }
 
   handleModalClose(event) {
-    this.setState({ showModal: false })
+    this.setState({ showModal: false });
   }
 
   handleShowCheckoutModal() {
-    this.setState({ showCheckoutModal: true})
+    this.setState({ showCheckoutModal: true });
   }
 
   handleCheckoutModalClose() {

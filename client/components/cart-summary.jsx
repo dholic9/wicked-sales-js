@@ -6,7 +6,7 @@ export default class CartSummary extends React.Component {
     super(props);
     this.handleSetView = this.handleSetView.bind(this);
     this.goToCheckout = this.goToCheckout.bind(this);
-    this.displayCartItems = this.displayCartItems.bind(this)
+    this.displayCartItems = this.displayCartItems.bind(this);
   }
 
   displayCartItems() {
@@ -29,13 +29,13 @@ export default class CartSummary extends React.Component {
   displayTotalPrice() {
     let sum = 0;
     this.props.Array.map(index => {
-      sum += Number(index.price/100);
+      sum += Number(index.price / 100);
     });
     return sum.toFixed(2);
   }
 
-  goToCheckout(event){
-    this.props.setView('checkout', {})
+  goToCheckout(event) {
+    this.props.setView('checkout', {});
   }
 
   render() {
@@ -63,14 +63,14 @@ export default class CartSummary extends React.Component {
           </div>
           <div>
             {this.props.Array.length === 0
-                ? ""
-                : <button
-                    type="button"
-                    className="btn btn-primary"
-                    onClick={this.goToCheckout}
-                  >
+              ? ''
+              : <button
+                type="button"
+                className="btn btn-primary"
+                onClick={this.goToCheckout}
+              >
                     Checkout
-                  </button>}
+              </button>}
           </div>
         </div>
       </div>
