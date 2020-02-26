@@ -105,7 +105,7 @@ export default class ProductList extends React.Component {
           })}
         </div>
         <div className={this.state.modalShown
-          ? 'modal longFadeIn hidden start-modal text-center'
+          ? 'modal longFadeIn  start-modal text-center'
           : 'modal longFadeIn hidden start-modal text-center'}>
           <div className="  modal-dialog modal-dialog-centered">
             <div className="modal-content">
