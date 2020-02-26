@@ -22,6 +22,7 @@ export default class App extends React.Component {
       },
       cart: [],
       showModal: true,
+      showCheckoutModal: false,
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
@@ -120,6 +121,9 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(data => {
+
+          console.log('place order data: ', data);
+
         this.setState({
           cart: [],
           view: {
