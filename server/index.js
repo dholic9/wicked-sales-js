@@ -78,10 +78,6 @@ app.get('/api/cart', (req, res, next) => {
 
   db.query(sql, values)
     .then(result => {
-<<<<<<< HEAD
-
-=======
->>>>>>> master
       return res.status(200).json(result.rows);
     })
     .catch(err => next(err));
