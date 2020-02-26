@@ -72,10 +72,12 @@ export default class CheckoutForm extends React.Component {
             <form onSubmit={this.handleSubmit} className="input-group flex-column">
               <div className="form-group">
                 <div className="input-group w-100 flex-column">
-                  <p>Name</p>
+                  <label htmlFor="name">Name</label>
                   <input
                     type="text"
                     className="form-control w-100"
+                    name="name"
+                    id="name"
                     required
                     autoFocus
                     onChange={this.handleNameChange}
@@ -84,10 +86,12 @@ export default class CheckoutForm extends React.Component {
               </div>
               <div className="form-group">
                 <div className="input-group flex-column">
-                  <p>Credit Card</p>
+                  <label htmlFor="creditCard">Credit Card</label>
                   <input
                     type="text"
                     className="form-control w-100"
+                    name="creditCard"
+                    id="creditCard"
                     required
                     autoFocus
                     onChange={this.handleCreditCardChange}
@@ -96,13 +100,13 @@ export default class CheckoutForm extends React.Component {
               </div>
               <div className="form-group">
                 <div className="input-group flex-column w-100">
-                  <p>Shipping Address</p>
+                  <label htmlFor="shippingAddress">Shipping Address</label>
                   <textarea
                     required
                     autoFocus
                     className="form-control w-100"
-                    name="address"
-                    id=""
+                    name="shippingAddress"
+                    id="shippingAddress"
                     cols="30"
                     rows="5"
                     onChange={this.handleShippingAddressChange}
