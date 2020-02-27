@@ -10,13 +10,27 @@ export default class CartSummary extends React.Component {
   }
 
   displayCartItems() {
+
     var cartArray = this.props.Array;
+
+    for(let i=0; i<cartArray.length; i++) {
+      cartArray[i].quantity = 1;
+
+      for(let j=i+1; j<cartArray.length; j++) {
+        if(cartArray[i]['productId'] === cartArray[j]['productId']) {
+          cartArray[i]['quantity']++;
+          cartArray.splice(j, 1)
+        }
+      }
+    }
+
     return cartArray.map(item => {
       return (
         <CartSummaryItem
           key={item.cartItemId}
           delete={this.props.delete}
-          item={item}>
+          item={item}
+          addToCart={this.props.addToCart}>
         </CartSummaryItem>
       );
     });
