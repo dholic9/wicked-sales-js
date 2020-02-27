@@ -13,6 +13,8 @@ export default class CartSummary extends React.Component {
 
     var cartArray = [...this.props.Array];
 
+
+
     return cartArray.map(item => {
       return (
         <CartSummaryItem
