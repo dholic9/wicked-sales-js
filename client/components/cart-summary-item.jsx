@@ -12,6 +12,10 @@ export default class CartSummaryItem extends React.Component {
 
 
   render() {
+
+    console.log('item props', this.props);
+    console.log('item state', this.state)
+
     return (
       <div className="row my-3 p-2 border cart-item">
         <div className="col-md-5 col-sm-12">
@@ -21,7 +25,16 @@ export default class CartSummaryItem extends React.Component {
           <h3>{this.props.item.name}</h3>
           <h5 className="text-secondary">{'$' + (this.props.item.price / 100).toFixed(2)}</h5>
           <p>{this.props.item.shortDescription}</p>
-          <button type='button' className="btn btn-secondary" onClick={this.handleCartItemDelete}>Remove</button>
+          <div className=" d-flex align-items-center mb-2 ">
+            <button className="btn btn-sm border-dark">
+              <i className="fas fa-minus"></i>
+            </button>
+            <div className="px-3 quantity-number">{this.props.item.quantity}</div>
+            <button className="btn btn-sm border-dark">
+              <i className="fas fa-plus"></i>
+            </button>
+          </div>
+          <button type='button' className="btn btn-danger" onClick={this.handleCartItemDelete}>Remove</button>
         </div>
       </div>
     );

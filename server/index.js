@@ -39,6 +39,8 @@ app.get('/api/products', (req, res, next) => {
     .catch(err => next(err));
 });
 
+/**   GET PRODUCT DETAIL      */
+
 app.get('/api/products/:productId', (req, res, next) => {
   const { productId } = req.params;
   const values = [productId];
@@ -57,7 +59,7 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-/*   CART handle     */
+/*   CART GET handle     */
 
 app.get('/api/cart', (req, res, next) => {
   const sql = `
@@ -82,6 +84,8 @@ app.get('/api/cart', (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+/**    CART POST handle    */
 
 app.post('/api/cart', (req, res, next) => {
   const productId = req.body.productId;
@@ -164,6 +168,7 @@ app.post('/api/cart', (req, res, next) => {
 });
 
 /**   DELETE from Cart */
+
 app.delete('/api/cart/:cartItemId', (req, res, next) => {
   const { cartItemId } = req.params;
   const sql = `
@@ -180,6 +185,7 @@ app.delete('/api/cart/:cartItemId', (req, res, next) => {
 });
 
 /*   ORDERS handle     */
+
 app.post('/api/orders', (req, res, next) => {
   if (!req.session.cartId) {
     return res.status(400).json({ error: 'Invalid cart' });

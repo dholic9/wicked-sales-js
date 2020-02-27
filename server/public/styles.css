@@ -111,6 +111,9 @@ body{
 .go-to-cart-button {
   width: 100%;
 }
+.quantity-number {
+
+}
 
 @keyframes fadein {
   from { opacity: 0; }
