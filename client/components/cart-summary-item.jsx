@@ -12,7 +12,6 @@ export default class CartSummaryItem extends React.Component {
   }
 
   handleCartAddQuantity(){
-    console.log('added!!@!IU#GUI!@');
     let tempProductId = this.props.item.productId;
 
       let increaseItem = {
