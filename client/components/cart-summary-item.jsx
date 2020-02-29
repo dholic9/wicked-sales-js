@@ -17,9 +17,9 @@ export default class CartSummaryItem extends React.Component {
 
     /**     MERGE CART DUPLICATES */
 
-      let increaseItem = {
-        productId: tempProductId
-      }
+    let increaseItem = {
+      productId: tempProductId
+    }
     this.props.addToCart(increaseItem)
 
   }
