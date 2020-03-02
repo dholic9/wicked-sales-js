@@ -38,8 +38,8 @@ export default class CartSummaryItem extends React.Component {
 
   render() {
 
-    console.log('item props', this.props);
-    console.log('item state', this.state)
+    // console.log('item props', this.props);
+    // console.log('item state', this.state)
 
     return (
       <div className="row my-3 p-2 border cart-item">

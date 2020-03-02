@@ -13,6 +13,20 @@ export default class CartSummary extends React.Component {
   displayCartItems() {
 
     var cartArray = [...this.props.Array];
+    // console.log('cartarray', cartArray)
+
+    // for (let i = 0; i < cartArray.length; i++) {
+    //   cartArray[i].quantity = 1;
+    //   for (let j = i+1; j < cartArray.length; j++){
+    //     if (cartArray[i].productId === cartArray[j].productId){
+    //       cartArray[i].quantity++
+    //       cartArray.splice(j,1)
+    //     }
+    //   }
+    // }
+
+
+    // console.log('AFTER', cartArray)
 
     return cartArray.map(item => {
       return (
@@ -43,6 +57,7 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
+    // console.log('cart-summary props: ', this.props)
     return (
       <div className="container fadeIn">
         <div className="row">
