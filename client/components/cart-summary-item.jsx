@@ -25,7 +25,6 @@ export default class CartSummaryItem extends React.Component {
   }
 
   handleCartAddQuantity(){
-    console.log('added!!@!IU#GUI!@');
     let tempProductId = this.props.item.productId;
 
       let increaseItem = {
@@ -37,10 +36,6 @@ export default class CartSummaryItem extends React.Component {
 
 
   render() {
-
-    console.log('item props', this.props);
-    console.log('item state', this.state)
-
     return (
       <div className="row my-3 p-2 border cart-item">
         <div className="col-md-5 col-sm-12">
