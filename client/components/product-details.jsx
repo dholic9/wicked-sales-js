@@ -82,7 +82,7 @@ export default class ProductDetails extends React.Component {
           : 'modal longFadeIn hidden start-modal text-center'}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content add-cart-modal align-items-center text-center justify-content-center">
-              <div className="modal-body p-0  flex-column justify-content-center">
+              <div className="modal-body add-modal  flex-column justify-content-center">
                 <h5 className='my-4 mx-5 '>Item has been added to your cart</h5>
                 <div className=" my-3 mx-2 row flex-row justify-content-around">
                   <div className="col-6">
