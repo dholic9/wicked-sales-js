@@ -3,12 +3,25 @@ import React from 'react';
 export default class CartSummaryItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false
+    }
     this.handleCartItemDelete = this.handleCartItemDelete.bind(this);
     this.handleCartAddQuantity = this.handleCartAddQuantity.bind(this);
+    this.openDeleteConfirmation = this.openDeleteConfirmation.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  handleCartItemDelete(event){
+  handleCartItemDelete(){
     this.props.delete(this.props.item)
+  }
+
+  openDeleteConfirmation(){
+    this.setState({ showModal: true})
+  }
+
+  closeModal(){
+    this.setState({ showModal: false })
   }
 
   handleCartAddQuantity(){
@@ -24,8 +37,8 @@ export default class CartSummaryItem extends React.Component {
 
   render() {
 
-    console.log('item props', this.props);
-    console.log('item state', this.state)
+    // console.log('item props', this.props);
+    // console.log('item state', this.state)
 
     return (
       <div className="row my-3 p-2 border cart-item">
@@ -45,7 +58,27 @@ export default class CartSummaryItem extends React.Component {
               <i className="fas fa-plus"></i>
             </button>
           </div>
-          <button type='button' className="btn btn-danger" onClick={this.handleCartItemDelete}>Remove</button>
+          <button type='button' className="btn btn-danger" onClick={this.openDeleteConfirmation}>Remove</button>
+        </div>
+
+        <div className={this.state.showModal
+          ? 'modal longFadeIn start-modal text-center'
+          : 'modal longFadeIn hidden start-modal text-center'}>
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content add-cart-modal align-items-center text-center justify-content-center">
+              <div className="modal-body add-modal  flex-column justify-content-center">
+                <h5 className='my-4 mx-5 '>Are you sure you want to remove {this.props.item.name} from your cart?</h5>
+                <div className=" my-3 mx-2 row flex-row justify-content-around">
+                  <div className="col-6">
+                    <button className="btn btn-primary continue-button" onClick={this.closeModal} data-dismiss="modal">Cancel</button>
+                  </div>
+                  <div className="col-6">
+                    <button className="btn btn-danger  go-to-cart-button" onClick={this.handleCartItemDelete} data-dismiss="modal">Remove</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import CartSummaryItem from './cart-summary-item';
 export default class CartSummary extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleSetView = this.handleSetView.bind(this);
     this.goToCheckout = this.goToCheckout.bind(this);
     this.displayCartItems = this.displayCartItems.bind(this);
@@ -12,6 +13,20 @@ export default class CartSummary extends React.Component {
   displayCartItems() {
 
     var cartArray = [...this.props.Array];
+    // console.log('cartarray', cartArray)
+
+    // for (let i = 0; i < cartArray.length; i++) {
+    //   cartArray[i].quantity = 1;
+    //   for (let j = i+1; j < cartArray.length; j++){
+    //     if (cartArray[i].productId === cartArray[j].productId){
+    //       cartArray[i].quantity++
+    //       cartArray.splice(j,1)
+    //     }
+    //   }
+    // }
+
+
+    // console.log('AFTER', cartArray)
 
 
 
@@ -44,7 +59,7 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-    console.log('cartArray', this.props)
+    // console.log('cart-summary props: ', this.props)
     return (
       <div className="container fadeIn">
         <div className="row">
@@ -62,6 +77,9 @@ export default class CartSummary extends React.Component {
         {this.props.Array.length === 0
           ? <h3>Your Shopping Cart is empty.</h3>
           : this.displayCartItems()}
+
+
+
 
         <div className="row justify-content-between mb-4 pb-4 pt-2">
           <div className="flex-row">
