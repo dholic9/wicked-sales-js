@@ -41,7 +41,7 @@ Try the application live at [https://store.davidjinhong.com](https://store.david
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/dholic9/wicked-sales-js
+    git clone https://github.com/dholic9/wicked-sales-js.git
     cd wicked-sales-js
     ```
 

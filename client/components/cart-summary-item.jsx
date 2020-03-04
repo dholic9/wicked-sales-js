@@ -27,19 +27,17 @@ export default class CartSummaryItem extends React.Component {
   handleCartAddQuantity(){
     let tempProductId = this.props.item.productId;
 
-      let increaseItem = {
-        productId: tempProductId
-      }
+    /**     MERGE CART DUPLICATES */
+
+    let increaseItem = {
+      productId: tempProductId
+    }
     this.props.addToCart(increaseItem)
 
   }
 
 
   render() {
-
-    // console.log('item props', this.props);
-    // console.log('item state', this.state)
-
     return (
       <div className="row my-3 p-2 border cart-item">
         <div className="col-md-5 col-sm-12">
