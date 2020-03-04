@@ -13,6 +13,7 @@ export default class CartSummary extends React.Component {
   displayCartItems() {
 
     var cartArray = [...this.props.Array];
+
     // console.log('cartarray', cartArray)
 
     // for (let i = 0; i < cartArray.length; i++) {
