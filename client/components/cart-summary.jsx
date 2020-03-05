@@ -27,7 +27,7 @@ export default class CartSummary extends React.Component {
     // }
 
 
-    // console.log('AFTER', cartArray)
+    console.log('AFTER', cartArray)
 
 
 
@@ -60,7 +60,7 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-    // console.log('cart-summary props: ', this.props)
+    console.log('cart-summary props: ', this.props)
     return (
       <div className="container fadeIn">
         <div className="row">
@@ -78,9 +78,6 @@ export default class CartSummary extends React.Component {
         {this.props.Array.length === 0
           ? <h3>Your Shopping Cart is empty.</h3>
           : this.displayCartItems()}
-
-
-
 
         <div className="row justify-content-between mb-4 pb-4 pt-2">
           <div className="flex-row">
