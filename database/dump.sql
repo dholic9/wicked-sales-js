@@ -74,7 +74,8 @@ CREATE TABLE public."cartItems" (
     "cartItemId" integer NOT NULL,
     "cartId" integer NOT NULL,
     "productId" integer NOT NULL,
-    price integer NOT NULL
+    price integer NOT NULL,
+    quantity integer DEFAULT 1 NOT NULL
 );
 
 
@@ -228,32 +229,33 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 -- Data for Name: cartItems; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-1	11	3	29
-2	12	3	29
-3	13	3	29
-4	14	6	9
-5	15	6	9
-6	15	3	29
-7	15	4	119
-8	15	3	29
-9	15	3	29
-10	16	4	119
-11	16	6	9
-12	16	3	29
-13	16	3	29
-14	16	4	119
-15	16	2	39
-16	17	5	99
-17	18	2	1499
-18	18	4	9999
-19	18	5	2999
-20	19	3	11900
-43	20	6	13500
-46	20	4	8900
-47	20	5	8900
-49	20	1	9900
-51	21	2	11900
+COPY public."cartItems" ("cartItemId", "cartId", "productId", price, quantity) FROM stdin;
+1	11	3	29	1
+2	12	3	29	1
+3	13	3	29	1
+4	14	6	9	1
+5	15	6	9	1
+6	15	3	29	1
+7	15	4	119	1
+8	15	3	29	1
+9	15	3	29	1
+10	16	4	119	1
+11	16	6	9	1
+12	16	3	29	1
+13	16	3	29	1
+14	16	4	119	1
+15	16	2	39	1
+16	17	5	99	1
+17	18	2	1499	1
+18	18	4	9999	1
+19	18	5	2999	1
+20	19	3	11900	1
+43	20	6	13500	1
+46	20	4	8900	1
+47	20	5	8900	1
+49	20	1	9900	1
+51	21	2	11900	1
+52	22	6	13500	1
 \.
 
 
@@ -262,27 +264,30 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-1	2020-01-14 14:48:01.619062-08
-2	2020-01-14 14:48:36.64083-08
-3	2020-01-14 15:02:10.478019-08
-4	2020-01-14 15:02:48.781542-08
-5	2020-01-14 15:03:29.367628-08
-6	2020-01-14 15:03:47.988372-08
-7	2020-01-14 15:04:46.06274-08
-8	2020-01-14 15:05:31.839023-08
-9	2020-01-14 15:07:48.44041-08
-10	2020-01-14 15:09:51.478537-08
-11	2020-01-14 15:18:41.111105-08
-12	2020-01-14 15:23:33.481771-08
-13	2020-01-14 15:24:32.863675-08
-14	2020-01-14 15:26:05.285844-08
-15	2020-01-14 15:33:44.332635-08
-16	2020-01-14 17:19:41.879794-08
-17	2020-01-15 10:12:05.43415-08
-18	2020-02-05 14:15:10.204288-08
-19	2020-02-06 18:46:51.088522-08
-20	2020-02-07 13:44:10.708495-08
-21	2020-02-25 21:51:51.773006-08
+1	2020-01-14 22:48:01.619062+00
+2	2020-01-14 22:48:36.64083+00
+3	2020-01-14 23:02:10.478019+00
+4	2020-01-14 23:02:48.781542+00
+5	2020-01-14 23:03:29.367628+00
+6	2020-01-14 23:03:47.988372+00
+7	2020-01-14 23:04:46.06274+00
+8	2020-01-14 23:05:31.839023+00
+9	2020-01-14 23:07:48.44041+00
+10	2020-01-14 23:09:51.478537+00
+11	2020-01-14 23:18:41.111105+00
+12	2020-01-14 23:23:33.481771+00
+13	2020-01-14 23:24:32.863675+00
+14	2020-01-14 23:26:05.285844+00
+15	2020-01-14 23:33:44.332635+00
+16	2020-01-15 01:19:41.879794+00
+17	2020-01-15 18:12:05.43415+00
+18	2020-02-05 22:15:10.204288+00
+19	2020-02-07 02:46:51.088522+00
+20	2020-02-07 21:44:10.708495+00
+21	2020-02-26 05:51:51.773006+00
+22	2020-03-02 23:07:43.670671+00
+23	2020-03-04 02:11:25.784321+00
+24	2020-03-05 00:42:25.71538+00
 \.
 
 
@@ -291,7 +296,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 --
 
 COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
-1	20	ad	asdf	asdf	2020-02-07 14:05:47.950621-08
+1	20	ad	asdf	asdf	2020-02-07 22:05:47.950621+00
 \.
 
 
@@ -313,14 +318,14 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 51, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 64, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 21, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 24, true);
 
 
 --

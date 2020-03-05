@@ -65,6 +65,7 @@ app.get('/api/cart', (req, res, next) => {
   const sql = `
            SELECT "c"."cartItemId",
                   "c"."price",
+                  "c"."quantity",
                   "p"."productId",
                   "p"."image",
                   "p"."name",
