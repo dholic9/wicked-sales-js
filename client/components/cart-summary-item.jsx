@@ -37,6 +37,10 @@ export default class CartSummaryItem extends React.Component {
   }
 
   render() {
+
+    console.log('cartsummaryitem props: ', this.props)
+
+
     return (
       <div className="row my-3 p-2 border cart-item">
         <div className="col-md-5 col-sm-12">
@@ -53,7 +57,10 @@ export default class CartSummaryItem extends React.Component {
               <i className="fas fa-minus"></i>
             </button>
             <div className="px-3 quantity-number">{this.props.item.quantity}</div>
-            <button className="btn btn-sm border-dark" onClick={this.handleCartAddQuantity}>
+            <button
+              className="btn btn-sm border-dark"
+              // onClick={this.handleCartAddQuantity}
+            >
               <i className="fas fa-plus"></i>
             </button>
           </div>

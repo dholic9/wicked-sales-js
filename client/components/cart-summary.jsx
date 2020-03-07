@@ -18,15 +18,6 @@ export default class CartSummary extends React.Component {
 
     console.log('cartarray BEFORE', cartArray)
 
-    // for (let i = 0; i < cartArray.length; i++) {
-    //   cartArray[i].quantity = 1;
-    //   for (let j = i+1; j < cartArray.length; j++){
-    //     if (cartArray[i].productId === cartArray[j].productId){
-    //       cartArray[i].quantity++
-    //       cartArray.splice(j,1)
-    //     }
-    //   }
-    // }
 
 
     console.log('AFTER', cartArray)
@@ -44,7 +35,7 @@ export default class CartSummary extends React.Component {
       );
     });
 
-    // this.setState();
+    this.setState();
   }
 
   handleSetView() {
@@ -54,7 +45,7 @@ export default class CartSummary extends React.Component {
   displayTotalPrice() {
     let sum = 0;
     this.props.Array.map(index => {
-      sum += Number(index.price / 100);
+      sum += Number((index.price * index.quantity) / 100);
     });
     return sum.toFixed(2);
   }
@@ -64,8 +55,6 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-
-    console.log('cart-summary props: ', this.props)
 
     return (
       <div className="container fadeIn">

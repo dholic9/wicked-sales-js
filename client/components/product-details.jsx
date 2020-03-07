@@ -44,6 +44,7 @@ export default class ProductDetails extends React.Component {
   }
 
   render() {
+
     return (
       <div className="product-detail mx-4 mb-5 fadeIn">
         <div className="row flex-row clickable">
