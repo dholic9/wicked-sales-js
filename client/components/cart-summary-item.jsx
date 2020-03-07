@@ -38,7 +38,7 @@ export default class CartSummaryItem extends React.Component {
 
   render() {
 
-    console.log('cartsummaryitem props: ', this.props)
+    // console.log('cartsummaryitem props: ', this.props)
 
 
     return (

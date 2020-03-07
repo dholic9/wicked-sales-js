@@ -16,11 +16,11 @@ export default class CartSummary extends React.Component {
 
 
 
-    console.log('cartarray BEFORE', cartArray)
+    // console.log('cartarray BEFORE', cartArray)
 
 
 
-    console.log('AFTER', cartArray)
+    // console.log('AFTER', cartArray)
 
 
 
@@ -35,7 +35,7 @@ export default class CartSummary extends React.Component {
       );
     });
 
-    this.setState();
+    // this.setState();
   }
 
   handleSetView() {
