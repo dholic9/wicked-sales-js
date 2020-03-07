@@ -14,15 +14,11 @@ export default class CartSummary extends React.Component {
 
     const cartArray = [...this.props.Array];
 
-
-
     // console.log('cartarray BEFORE', cartArray)
 
 
 
     // console.log('AFTER', cartArray)
-
-
 
     return cartArray.map(item => {
       return (
@@ -55,7 +51,6 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-
     return (
       <div className="container fadeIn">
         <div className="row">
@@ -84,10 +79,9 @@ export default class CartSummary extends React.Component {
               : <button
                 type="button"
                 className="btn btn-primary"
-                onClick={this.goToCheckout}
-              >
+                onClick={this.goToCheckout}>
                     Checkout
-              </button>}
+                </button>}
           </div>
         </div>
       </div>
