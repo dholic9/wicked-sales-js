@@ -16,7 +16,7 @@ export default class CartSummary extends React.Component {
 
 
 
-    // console.log('cartarray BEFORE', cartArray)
+    console.log('cartarray BEFORE', cartArray)
 
     // for (let i = 0; i < cartArray.length; i++) {
     //   cartArray[i].quantity = 1;
@@ -29,7 +29,7 @@ export default class CartSummary extends React.Component {
     // }
 
 
-    // console.log('AFTER', cartArray)
+    console.log('AFTER', cartArray)
 
 
 
@@ -65,7 +65,7 @@ export default class CartSummary extends React.Component {
 
   render() {
 
-    // console.log('cart-summary props: ', this.props)
+    console.log('cart-summary props: ', this.props)
 
     return (
       <div className="container fadeIn">
