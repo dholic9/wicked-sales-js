@@ -18,7 +18,7 @@ export default class CartSummary extends React.Component {
 
 
 
-    console.log('AFTER', cartArray)
+    // console.log('AFTER', cartArray)
 
     return cartArray.map(item => {
       return (
@@ -87,5 +87,4 @@ export default class CartSummary extends React.Component {
       </div>
     );
   }
-
 }

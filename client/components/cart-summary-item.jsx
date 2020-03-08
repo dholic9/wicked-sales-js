@@ -51,18 +51,18 @@ export default class CartSummaryItem extends React.Component {
           <p>{this.props.item.shortDescription}</p>
 
 
-          <div className=" d-flex align-items-center mb-2 ">
+          {/* <div className=" d-flex align-items-center mb-2 ">
             <button className="btn btn-sm border-dark">
               <i className="fas fa-minus"></i>
             </button>
             <div className="px-3 quantity-number">{this.props.item.quantity}</div>
             <button
               className="btn btn-sm border-dark"
-              // onClick={this.handleCartAddQuantity}
+              onClick={this.handleCartAddQuantity}
             >
               <i className="fas fa-plus"></i>
             </button>
-          </div>
+          </div> */}
 
 
           <button type='button' className="btn btn-danger" onClick={this.openDeleteConfirmation}>Remove</button>
