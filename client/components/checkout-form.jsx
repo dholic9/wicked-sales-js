@@ -17,6 +17,7 @@ export default class CheckoutForm extends React.Component {
     this.handleShippingAddressChange = this.handleShippingAddressChange.bind(this);
     this.handleBackToCatalog = this.handleBackToCatalog.bind(this);
     this.blurNameTest = this.blurNameTest.bind(this);
+    this.blueCardTest = this.blueCardTest.bind(this);
   }
 
   handleNameChange(event) {
@@ -37,8 +38,10 @@ export default class CheckoutForm extends React.Component {
     });
   }
 
-  blurNameTest () {
-    let nameStr = event.target.value
+  blurNameTest() {
+    let nameInput = document.querySelector("#name")
+
+    let nameStr = nameInput.value
     nameStr.trim()
 
     if ( nameStr.length === 0 ) {
@@ -48,9 +51,21 @@ export default class CheckoutForm extends React.Component {
     } else {
       this.setState({ nameIsValid: true })
     }
+  }
 
-    console.log('nameStr ',  nameStr)
-
+  blueCardTest() {
+    let cardInput = document.querySelector('#creditCard')
+    let cardStr = cardInput.value
+    cardStr.trim()
+    if(cardStr.length === 0){
+      return;
+    }
+    console.log('cardStr: ', cardStr)
+    if(isNaN(cardStr)) {
+      this.setState({ cardIsValid: false })
+    } else if (cardStr.length !== 16) {
+      this.setState({ cardIsValid: false })
+    }
 
   }
 
@@ -66,7 +81,9 @@ export default class CheckoutForm extends React.Component {
 
   // validate form values HERE before placing order
 
-
+    if(this.state.nameIsValid === false || this.state.cardIsValid === false || this.state.addressIsValid === false){
+        return
+      }
 
     const orderInformation = {
       name: this.state.name,
@@ -87,7 +104,7 @@ export default class CheckoutForm extends React.Component {
 
   render() {
     return (
-      <div className="row flex-column mt-4 px-4 ">
+      <div className="row longFadeIn flex-column mt-4 px-4 ">
         <div className="col-12  p-0">
           <h1>My Cart</h1>
         </div>
@@ -122,20 +139,41 @@ export default class CheckoutForm extends React.Component {
                         onChange={this.handleNameChange}
                         onBlur={this.blurNameTest}/>
                   }
+                  {this.state.nameIsValid
+                    ? <div className="feedback d-none">
+                        <small>Minimum of 5 characters.</small>
+                      </div>
+                    : <div className="feedback ">
+                        <small>Minimum of 5 characters.</small>
+                      </div>
+                  }
                 </div>
               </div>
               <div className="form-group">
                 <div className="input-group flex-column">
                   <label htmlFor="creditCard">Credit Card</label>
-                  <input
-                    type="text"
-                    className="form-control rounded w-100"
-                    name="creditCard"
-                    id="creditCard"
-                    required
-                    autoFocus
-                    onChange={this.handleCreditCardChange}
-                  />
+                  { this.state.cardIsValid
+                    ? <input
+                        type="text"
+                        className="form-control rounded w-100"
+                        name="creditCard"
+                        id="creditCard"
+                        required
+                        autoFocus
+                        maxLength="16"
+                        onChange={this.handleCreditCardChange}
+                        onBlur={this.blueCardTest}/>
+                    : <input
+                        type="text"
+                        className="form-control isInvalid rounded w-100"
+                        name="creditCard"
+                        id="creditCard"
+                        required
+                        autoFocus
+                        maxLength="16"
+                        onChange={this.handleCreditCardChange}
+                        onBlur={this.blueCardTest}/>
+                  }
                 </div>
               </div>
               <div className="form-group">
@@ -161,7 +199,7 @@ export default class CheckoutForm extends React.Component {
                 <div>
                   <button
                     type="submit"
-                    className="btn btn-primary  float-right rounded">
+                    className="btn btn-primary float-right rounded">
                         Place Order
                   </button>
                 </div>

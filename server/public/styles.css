@@ -96,6 +96,9 @@ body{
   height: 57vh;
   cursor: pointer;
 }
+.feedback {
+  color: red;
+}
 .isInvalid {
   border: 1px solid red;
 }
@@ -105,7 +108,7 @@ body{
 }
 
 .longFadeIn{
-  animation: fadein 0.45s ease-in-out;
+  animation: fadein 0.5s ease-in-out;
 }
 .continue-button {
   width: 101%;
