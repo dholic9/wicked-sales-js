@@ -73,7 +73,7 @@ export default class CheckoutForm extends React.Component {
         </div>
         <div className="row mb-3">
           <div className="col-12 ">
-            <form onSubmit={this.handleSubmit} className="input-group flex-column">
+            <form onSubmit={this.handleSubmit} className="input-group card flex-column border rounded p-3">
               <div className="form-group">
                 <div className="input-group w-100 flex-column">
                   <label htmlFor="name">Name</label>
