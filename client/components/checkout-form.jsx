@@ -39,6 +39,10 @@ export default class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
+
+
+
     const orderInformation = {
       name: this.state.name,
       creditCard: this.state.creditCard,

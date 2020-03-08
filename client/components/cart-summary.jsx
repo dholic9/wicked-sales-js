@@ -64,15 +64,18 @@ export default class CartSummary extends React.Component {
         <div className="row ">
           <h1>My Cart</h1>
         </div>
-
-        {this.props.Array.length === 0
-          ? <h3>Your Shopping Cart is empty.</h3>
-          : this.displayCartItems()}
-
+          {this.props.Array.length === 0
+            ? <div className="row">
+                <h3>Your Shopping Cart is empty.</h3>
+              </div>
+            : this.displayCartItems()}
         <div className="row justify-content-between mb-4 pb-4 pt-2">
-          <div className="flex-row">
-            <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
-          </div>
+          {this.props.Array.length === 0
+            ? ''
+            : (<div className="flex-row">
+                <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+              </div>)
+          }
           <div>
             {this.props.Array.length === 0
               ? ''
