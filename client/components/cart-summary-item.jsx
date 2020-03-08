@@ -33,7 +33,6 @@ export default class CartSummaryItem extends React.Component {
       productId: tempProductId
     }
     this.props.addToCart(increaseItem)
-
   }
 
   render() {
