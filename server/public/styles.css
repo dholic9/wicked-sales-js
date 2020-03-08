@@ -73,7 +73,6 @@ body{
   align-items: center;
   flex-wrap: wrap;
 }
-
 .cart-item{
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
 }
@@ -97,6 +96,10 @@ body{
   height: 57vh;
   cursor: pointer;
 }
+.isInvalid {
+  border: 1px solid red;
+}
+
 .fadeIn{
   animation: fadein .3s ease-in-out;
 }
@@ -104,15 +107,11 @@ body{
 .longFadeIn{
   animation: fadein 0.45s ease-in-out;
 }
-
 .continue-button {
   width: 101%;
 }
 .go-to-cart-button {
   width: 100%;
-}
-.quantity-number {
-
 }
 
 @keyframes fadein {

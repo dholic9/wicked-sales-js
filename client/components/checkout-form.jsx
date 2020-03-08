@@ -6,13 +6,17 @@ export default class CheckoutForm extends React.Component {
     this.state = {
       name: null,
       creditCard: null,
-      shippingAddress: null
+      shippingAddress: null,
+      nameIsValid: true,
+      cardIsValid: true,
+      addressIsValid: true
     };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
     this.handleShippingAddressChange = this.handleShippingAddressChange.bind(this);
     this.handleBackToCatalog = this.handleBackToCatalog.bind(this);
+    this.blurNameTest = this.blurNameTest.bind(this);
   }
 
   handleNameChange(event) {
@@ -33,6 +37,26 @@ export default class CheckoutForm extends React.Component {
     });
   }
 
+  blurNameTest () {
+    let nameStr = event.target.value
+    nameStr.trim()
+
+    if ( nameStr.length === 0 ) {
+      this.setState({ nameIsValid: true })
+    } else if (nameStr.length < 5) {
+      this.setState({ nameIsValid: false })
+    } else {
+      this.setState({ nameIsValid: true })
+    }
+
+    console.log('nameStr ',  nameStr)
+
+
+  }
+
+
+
+
   handleBackToCatalog() {
     this.props.setView('catalog', {});
   }
@@ -40,6 +64,7 @@ export default class CheckoutForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
+  // validate form values HERE before placing order
 
 
 
@@ -73,19 +98,30 @@ export default class CheckoutForm extends React.Component {
         </div>
         <div className="row mb-3">
           <div className="col-12 ">
-            <form onSubmit={this.handleSubmit} className="input-group card flex-column border rounded p-3">
+            <form id="form" onSubmit={this.handleSubmit} className="input-group card flex-column border rounded p-3">
               <div className="form-group">
                 <div className="input-group w-100 flex-column">
                   <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    className="form-control w-100"
-                    name="name"
-                    id="name"
-                    required
-                    autoFocus
-                    onChange={this.handleNameChange}
-                  />
+                  { this.state.nameIsValid
+                    ? <input
+                        type="text"
+                        className="form-control rounded w-100"
+                        name="name"
+                        id="name"
+                        required
+                        autoFocus
+                        onChange={this.handleNameChange}
+                        onBlur={this.blurNameTest}/>
+                    : <input
+                        type="text"
+                        className="form-control isInvalid rounded w-100"
+                        name="name"
+                        id="name"
+                        required
+                        autoFocus
+                        onChange={this.handleNameChange}
+                        onBlur={this.blurNameTest}/>
+                  }
                 </div>
               </div>
               <div className="form-group">
@@ -93,7 +129,7 @@ export default class CheckoutForm extends React.Component {
                   <label htmlFor="creditCard">Credit Card</label>
                   <input
                     type="text"
-                    className="form-control w-100"
+                    className="form-control rounded w-100"
                     name="creditCard"
                     id="creditCard"
                     required
@@ -103,7 +139,7 @@ export default class CheckoutForm extends React.Component {
                 </div>
               </div>
               <div className="form-group">
-                <div className="input-group flex-column w-100">
+                <div className="input-group rounded flex-column w-100">
                   <label htmlFor="shippingAddress">Shipping Address</label>
                   <textarea
                     required
