@@ -16,8 +16,6 @@ export default class CartSummary extends React.Component {
 
     // console.log('cartarray BEFORE', cartArray)
 
-
-
     // console.log('AFTER', cartArray)
 
     return cartArray.map(item => {
@@ -64,17 +62,17 @@ export default class CartSummary extends React.Component {
         <div className="row ">
           <h1>My Cart</h1>
         </div>
-          {this.props.Array.length === 0
-            ? <div className="row">
-                <h3>Your Shopping Cart is empty.</h3>
-              </div>
-            : this.displayCartItems()}
+        {this.props.Array.length === 0
+          ? <div className="row">
+            <h3>Your Shopping Cart is empty.</h3>
+          </div>
+          : this.displayCartItems()}
         <div className="row justify-content-between mb-4 pb-4 pt-2">
           {this.props.Array.length === 0
             ? ''
             : (<div className="flex-row">
-                <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
-              </div>)
+              <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+            </div>)
           }
           <div>
             {this.props.Array.length === 0
@@ -84,7 +82,7 @@ export default class CartSummary extends React.Component {
                 className="btn btn-primary"
                 onClick={this.goToCheckout}>
                     Checkout
-                </button>}
+              </button>}
           </div>
         </div>
       </div>

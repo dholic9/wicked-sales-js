@@ -99,6 +99,7 @@ body{
 .feedback {
   color: red;
 }
+
 .isInvalid {
   border: 1px solid red;
 }

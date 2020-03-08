@@ -17,7 +17,7 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: {
-        name: 'checkout',
+        name: 'catalog',
         params: {}
       },
       cart: [],
@@ -124,11 +124,7 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          cart: [],
-          view: {
-            name: 'catalog',
-            params: {}
-          }
+          cart: []
         });
       });
   }
