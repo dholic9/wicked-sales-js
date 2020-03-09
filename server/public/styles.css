@@ -152,7 +152,7 @@ body{
 }
 .checkout-modal-style{
   overflow: hidden;
-  border: 3px solid rgb(137, 59, 206);
+  border: 3px solid rgba(0, 0, 0, 0.87);
 }
 
 
