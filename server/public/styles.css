@@ -73,7 +73,6 @@ body{
   align-items: center;
   flex-wrap: wrap;
 }
-
 .cart-item{
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
 }
@@ -97,22 +96,26 @@ body{
   height: 57vh;
   cursor: pointer;
 }
+.feedback {
+  color: red;
+}
+
+.isInvalid {
+  border: 1px solid red;
+}
+
 .fadeIn{
   animation: fadein .3s ease-in-out;
 }
 
 .longFadeIn{
-  animation: fadein 0.45s ease-in-out;
+  animation: fadein 0.5s ease-in-out;
 }
-
 .continue-button {
   width: 101%;
 }
 .go-to-cart-button {
   width: 100%;
-}
-.quantity-number {
-
 }
 
 @keyframes fadein {
@@ -149,7 +152,7 @@ body{
 }
 .checkout-modal-style{
   overflow: hidden;
-  border: 3px solid rgb(137, 59, 206);
+  border: 3px solid rgba(0, 0, 0, 0.87);
 }
 
 

@@ -12,24 +12,11 @@ export default class CartSummary extends React.Component {
 
   displayCartItems() {
 
-    var cartArray = [...this.props.Array];
+    const cartArray = [...this.props.Array];
 
-    // console.log('cartarray', cartArray)
-
-    // for (let i = 0; i < cartArray.length; i++) {
-    //   cartArray[i].quantity = 1;
-    //   for (let j = i+1; j < cartArray.length; j++){
-    //     if (cartArray[i].productId === cartArray[j].productId){
-    //       cartArray[i].quantity++
-    //       cartArray.splice(j,1)
-    //     }
-    //   }
-    // }
-
+    // console.log('cartarray BEFORE', cartArray)
 
     // console.log('AFTER', cartArray)
-
-
 
     return cartArray.map(item => {
       return (
@@ -41,6 +28,8 @@ export default class CartSummary extends React.Component {
         </CartSummaryItem>
       );
     });
+
+    // this.setState();
   }
 
   handleSetView() {
@@ -50,7 +39,7 @@ export default class CartSummary extends React.Component {
   displayTotalPrice() {
     let sum = 0;
     this.props.Array.map(index => {
-      sum += Number(index.price / 100);
+      sum += Number((index.price) / 100);
     });
     return sum.toFixed(2);
   }
@@ -60,7 +49,6 @@ export default class CartSummary extends React.Component {
   }
 
   render() {
-    // console.log('cart-summary props: ', this.props)
     return (
       <div className="container fadeIn">
         <div className="row">
@@ -74,26 +62,25 @@ export default class CartSummary extends React.Component {
         <div className="row ">
           <h1>My Cart</h1>
         </div>
-
         {this.props.Array.length === 0
-          ? <h3>Your Shopping Cart is empty.</h3>
-          : this.displayCartItems()}
-
-
-
-
-        <div className="row justify-content-between mb-4 pb-4 pt-2">
-          <div className="flex-row">
-            <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+          ? <div className="row">
+            <h3>Your Shopping Cart is empty.</h3>
           </div>
+          : this.displayCartItems()}
+        <div className="row justify-content-between mb-4 pb-4 pt-2">
+          {this.props.Array.length === 0
+            ? ''
+            : (<div className="flex-row">
+              <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+            </div>)
+          }
           <div>
             {this.props.Array.length === 0
               ? ''
               : <button
                 type="button"
                 className="btn btn-primary"
-                onClick={this.goToCheckout}
-              >
+                onClick={this.goToCheckout}>
                     Checkout
               </button>}
           </div>
@@ -101,5 +88,4 @@ export default class CartSummary extends React.Component {
       </div>
     );
   }
-
 }

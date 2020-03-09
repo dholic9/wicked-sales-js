@@ -6,13 +6,20 @@ export default class CheckoutForm extends React.Component {
     this.state = {
       name: null,
       creditCard: null,
-      shippingAddress: null
+      shippingAddress: null,
+      nameIsValid: true,
+      cardIsValid: true,
+      addressIsValid: true,
+      showButton: true
     };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCreditCardChange = this.handleCreditCardChange.bind(this);
     this.handleShippingAddressChange = this.handleShippingAddressChange.bind(this);
     this.handleBackToCatalog = this.handleBackToCatalog.bind(this);
+    this.blurNameTest = this.blurNameTest.bind(this);
+    this.blurCardTest = this.blurCardTest.bind(this);
+    this.blurAddressTest = this.blurAddressTest.bind(this);
   }
 
   handleNameChange(event) {
@@ -33,12 +40,59 @@ export default class CheckoutForm extends React.Component {
     });
   }
 
+  blurNameTest(event) {
+    const nameStr = event.target.value;
+    nameStr.trim();
+    if (!nameStr) {
+      this.setState({ nameIsValid: true });
+    } else if (nameStr.length < 5) {
+      this.setState({ nameIsValid: false });
+    } else {
+      this.setState({ nameIsValid: true });
+    }
+  }
+
+  blurCardTest(event) {
+    const cardStr = event.target.value;
+    cardStr.trim();
+    if (!cardStr) {
+      this.setState({ cardIsValid: true });
+    } else if (isNaN(cardStr)) {
+      this.setState({ cardIsValid: false });
+    } else if (cardStr.length !== 16) {
+      this.setState({ cardIsValid: false });
+    } else {
+      this.setState({ cardIsValid: true });
+    }
+  }
+
+  blurAddressTest(event) {
+    const addressStr = event.target.value;
+    addressStr.trim();
+
+    if (!addressStr) {
+      this.setState({ addressIsValid: true });
+    } else if (addressStr.length < 21) {
+      this.setState({ addressIsValid: false });
+    } else {
+      this.setState({ addressIsValid: true });
+    }
+  }
+
   handleBackToCatalog() {
     this.props.setView('catalog', {});
   }
 
   handleSubmit(event) {
     event.preventDefault();
+
+    // validate form values HERE before placing order
+
+    if (this.state.nameIsValid === false || this.state.cardIsValid === false || this.state.addressIsValid === false) {
+      alert('could not process the order');
+      return;
+    }
+
     const orderInformation = {
       name: this.state.name,
       creditCard: this.state.creditCard,
@@ -46,6 +100,7 @@ export default class CheckoutForm extends React.Component {
     };
     this.props.placeOrder(orderInformation);
     this.props.showModal();
+    this.handleBackToCatalog();
   }
 
   displayTotalPrice() {
@@ -58,8 +113,8 @@ export default class CheckoutForm extends React.Component {
 
   render() {
     return (
-      <div className="row flex-column mt-4 px-4 ">
-        <div className="col-12  p-0">
+      <div className="row longFadeIn flex-column mt-4 px-4 ">
+        <div className="col-12 p-0">
           <h1>My Cart</h1>
         </div>
         <div className="row mb-4 mt-2">
@@ -67,50 +122,121 @@ export default class CheckoutForm extends React.Component {
             <h4>{'Order Total: $' + this.displayTotalPrice()}</h4>
           </div>
         </div>
-        <div className="row mb-3">
-          <div className="col-12 ">
-            <form onSubmit={this.handleSubmit} className="input-group flex-column">
+        <div className="row justify-content-center mb-3">
+          <div className="col-12">
+            <form id="form" onSubmit={this.handleSubmit} className="input-group card flex-column border rounded p-3">
               <div className="form-group">
+                <h3 className="col-12 p-0 mb-3">Shipping/Billing Address</h3>
                 <div className="input-group w-100 flex-column">
                   <label htmlFor="name">Name</label>
-                  <input
-                    type="text"
-                    className="form-control w-100"
-                    name="name"
-                    id="name"
-                    required
-                    autoFocus
-                    onChange={this.handleNameChange}
-                  />
+                  { this.state.nameIsValid
+                    ? <input
+                      type="text"
+                      className="form-control rounded w-100"
+                      name="name"
+                      id="name"
+                      minLength="5"
+                      maxLength="65"
+                      required
+                      autoFocus
+                      onChange={this.handleNameChange}
+                      onBlur={this.blurNameTest}/>
+                    : <input
+                      type="text"
+                      className="form-control isInvalid rounded w-100"
+                      name="name"
+                      id="name"
+                      minLength="5"
+                      maxLength="65"
+                      required
+                      autoFocus
+                      onChange={this.handleNameChange}
+                      onBlur={this.blurNameTest}/>
+                  }
+                  { this.state.nameIsValid
+                    ? <div className="feedback d-none">
+                      <small>Minimum of 5 characters.</small>
+                    </div>
+                    : <div className="feedback ">
+                      <small>Minimum of 5 characters.</small>
+                    </div>
+                  }
                 </div>
               </div>
               <div className="form-group">
                 <div className="input-group flex-column">
                   <label htmlFor="creditCard">Credit Card</label>
-                  <input
-                    type="text"
-                    className="form-control w-100"
-                    name="creditCard"
-                    id="creditCard"
-                    required
-                    autoFocus
-                    onChange={this.handleCreditCardChange}
-                  />
+                  { this.state.cardIsValid
+                    ? <input
+                      type="text"
+                      className="form-control rounded w-100"
+                      name="creditCard"
+                      id="creditCard"
+                      required
+                      autoFocus
+                      maxLength="16"
+                      onChange={this.handleCreditCardChange}
+                      onBlur={this.blurCardTest}/>
+                    : <input
+                      type="text"
+                      className="form-control isInvalid rounded w-100"
+                      name="creditCard"
+                      id="creditCard"
+                      required
+                      autoFocus
+                      maxLength="16"
+                      onChange={this.handleCreditCardChange}
+                      onBlur={this.blurCardTest}/>
+                  }
+                  {this.state.cardIsValid
+                    ? <div className="feedback d-none">
+                      <small>Invalid credit card number.</small>
+                    </div>
+                    : <div className="feedback ">
+                      <small>Invalid credit card number.</small>
+                    </div>
+                  }
                 </div>
               </div>
               <div className="form-group">
-                <div className="input-group flex-column w-100">
+                <div className="input-group rounded flex-column w-100">
                   <label htmlFor="shippingAddress">Shipping Address</label>
-                  <textarea
-                    required
-                    autoFocus
-                    className="form-control w-100"
-                    name="shippingAddress"
-                    id="shippingAddress"
-                    cols="30"
-                    rows="5"
-                    onChange={this.handleShippingAddressChange}
-                  ></textarea>
+                  {this.state.addressIsValid
+                    ? <textarea
+                      autoFocus
+                      className="form-control rounded w-100"
+                      name="shippingAddress"
+                      id="shippingAddress"
+                      required
+                      cols="30"
+                      rows="5"
+                      minLength="21"
+                      maxLength="156"
+                      onChange={this.handleShippingAddressChange}
+                      onBlur={this.blurAddressTest}>
+                    </textarea>
+                    : <textarea
+                      autoFocus
+                      className="form-control isInvalid rounded w-100"
+                      name="shippingAddress"
+                      id="shippingAddress"
+                      required
+                      cols="30"
+                      rows="5"
+                      minLength="21"
+                      maxLength="156"
+                      onChange={this.handleShippingAddressChange}
+                      onBlur={this.blurAddressTest}>
+                    </textarea>
+                  }
+                  {this.state.addressIsValid
+                    ? <div className="feedback d-none">
+                      <small>Minimum of 21 characters.</small>
+                    </div>
+                    : <div className="feedback ">
+                      <small>Minimum of 21 characters.</small>
+                    </div>
+                  }
                 </div>
               </div>
               <div className="input-group-append w-100 justify-content-between align-items-center ">
@@ -119,11 +245,18 @@ export default class CheckoutForm extends React.Component {
                   <div onClick={this.handleBackToCatalog} className="backButton my-3 text-secondary "> Continue Shopping</div>
                 </div>
                 <div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary  float-right rounded">
+                  {this.state.showButton
+                    ? <button
+                      type="submit"
+                      className="btn btn-primary float-right rounded" >
                         Place Order
-                  </button>
+                    </button>
+                    : <button
+                      type="button"
+                      className="btn btn-secondary float-right rounded">
+                      Place Order
+                    </button>
+                  }
                 </div>
               </div>
             </form>
