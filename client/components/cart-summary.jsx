@@ -14,10 +14,6 @@ export default class CartSummary extends React.Component {
 
     const cartArray = [...this.props.Array];
 
-    // console.log('cartarray BEFORE', cartArray)
-
-    // console.log('AFTER', cartArray)
-
     return cartArray.map(item => {
       return (
         <CartSummaryItem
@@ -29,7 +25,6 @@ export default class CartSummary extends React.Component {
       );
     });
 
-    // this.setState();
   }
 
   handleSetView() {

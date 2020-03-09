@@ -86,8 +86,6 @@ export default class CheckoutForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    // validate form values HERE before placing order
-
     if (this.state.nameIsValid === false || this.state.cardIsValid === false || this.state.addressIsValid === false) {
       alert('could not process the order');
       return;
