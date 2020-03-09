@@ -39,7 +39,7 @@ export default class CartSummary extends React.Component {
   displayTotalPrice() {
     let sum = 0;
     this.props.Array.map(index => {
-      sum += Number((index.price * index.quantity) / 100);
+      sum += Number((index.price) / 100);
     });
     return sum.toFixed(2);
   }
