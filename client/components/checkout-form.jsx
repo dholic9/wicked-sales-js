@@ -55,10 +55,9 @@ export default class CheckoutForm extends React.Component {
   blurCardTest(event) {
     const cardStr = event.target.value;
     cardStr.trim();
-    const cardNum = Number(cardStr);
     if (!cardStr) {
       this.setState({ cardIsValid: true });
-    } else if (isNaN(cardNum)) {
+    } else if (isNaN(cardStr)) {
       this.setState({ cardIsValid: false });
     } else if (cardStr.length !== 16) {
       this.setState({ cardIsValid: false });
@@ -86,10 +85,11 @@ export default class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     // validate form values HERE before placing order
 
     if (this.state.nameIsValid === false || this.state.cardIsValid === false || this.state.addressIsValid === false) {
-      alert();
+      alert('could not process the order');
       return;
     }
 
