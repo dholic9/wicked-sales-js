@@ -4,16 +4,13 @@ import CartSummaryItem from './cart-summary-item';
 export default class CartSummary extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleSetView = this.handleSetView.bind(this);
     this.goToCheckout = this.goToCheckout.bind(this);
     this.displayCartItems = this.displayCartItems.bind(this);
   }
 
   displayCartItems() {
-
     const cartArray = [...this.props.Array];
-
     return cartArray.map(item => {
       return (
         <CartSummaryItem
@@ -24,7 +21,6 @@ export default class CartSummary extends React.Component {
         </CartSummaryItem>
       );
     });
-
   }
 
   handleSetView() {
@@ -66,9 +62,8 @@ export default class CartSummary extends React.Component {
           {this.props.Array.length === 0
             ? ''
             : (<div className="flex-row">
-              <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
-            </div>)
-          }
+                <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+              </div>)}
           <div>
             {this.props.Array.length === 0
               ? ''
