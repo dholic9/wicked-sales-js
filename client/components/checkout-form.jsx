@@ -85,12 +85,10 @@ export default class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
     if (this.state.nameIsValid === false || this.state.cardIsValid === false || this.state.addressIsValid === false) {
       alert('could not process the order');
       return;
     }
-
     const orderInformation = {
       name: this.state.name,
       creditCard: this.state.creditCard,
