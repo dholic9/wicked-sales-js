@@ -69,7 +69,6 @@ export default class CheckoutForm extends React.Component {
   blurAddressTest(event) {
     const addressStr = event.target.value;
     addressStr.trim();
-
     if (!addressStr) {
       this.setState({ addressIsValid: true });
     } else if (addressStr.length < 21) {
@@ -86,7 +85,7 @@ export default class CheckoutForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.nameIsValid === false || this.state.cardIsValid === false || this.state.addressIsValid === false) {
-      alert('could not process the order');
+      alert('could not process the order until all fields are filled out');
       return;
     }
     const orderInformation = {
