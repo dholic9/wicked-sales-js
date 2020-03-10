@@ -10,8 +10,8 @@ body{
 .icon{
   height: 40px;
   position: relative;
-  bottom: 9px;
-  margin-right: 10px;
+  bottom: 3px;
+  margin-right: 5px;
 }
 .home-button{
   cursor: pointer;
