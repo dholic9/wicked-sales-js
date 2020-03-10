@@ -20,10 +20,9 @@ export default class Header extends React.Component {
     return (
       <nav className="navbar align-middle navbar-expand-lg">
         <div className="home-button d-flex align-items-center flex-row" onClick={this.handleBackToHomeClick}>
-          <img className="icon" src="/images/key.svg"/>
+          <img className="icon" src="/images/key1.png"/>
           <h3 className="home-button title">Mechanical Keys</h3>
         </div>
-
         <div onClick={this.handleCartView} className="cart pb-1">
           <p className="m-0 cart-item-number">{cartItemCount === 1
             ? cartItemCount + '  Item'
