@@ -149,6 +149,7 @@ app.post('/api/cart', (req, res, next) => {
       const newCartItemSql = `
                SELECT "c"."cartItemId",
                       "c"."price",
+                      "c"."quantity",
                       "p"."productId",
                       "p"."image",
                       "p"."name",
