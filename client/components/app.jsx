@@ -59,8 +59,7 @@ export default class App extends React.Component {
           showModal={this.state.showModal}
           handleModalClose={this.handleModalClose}
           showCheckoutModal={this.state.showCheckoutModal}
-          handleCheckoutModalClose={this.handleCheckoutModalClose}
-        />
+          handleCheckoutModalClose={this.handleCheckoutModalClose}/>
       );
     } else if (this.state.view.name === 'details') {
       return (
