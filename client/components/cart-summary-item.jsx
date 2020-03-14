@@ -34,7 +34,7 @@ export default class CartSummaryItem extends React.Component {
 
   render() {
     return (
-      <div className="row my-3 p-2 border cart-item">
+      <div className="row my-3 p-2 border longFadeIn slideIn cart-item">
         <div className="col-md-5 col-sm-12">
           <img className="cart-pic" src={this.props.item.image} alt=""/>
         </div>
@@ -45,8 +45,8 @@ export default class CartSummaryItem extends React.Component {
           <button type='button' className="btn btn-danger" onClick={this.openDeleteConfirmation}>Remove</button>
         </div>
         <div className={this.state.showModal
-          ? 'modal longFadeIn start-modal text-center'
-          : 'modal longFadeIn hidden start-modal text-center'}>
+          ? 'modal fastFadeIn start-modal text-center'
+          : 'modal fastFadeIn hidden start-modal text-center'}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content add-cart-modal align-items-center text-center justify-content-center">
               <div className="modal-body add-modal  flex-column justify-content-center">
