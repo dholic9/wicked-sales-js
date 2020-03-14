@@ -51,8 +51,8 @@ export default class ProductDetails extends React.Component {
           <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         </div>
 
-        <div className="row longSlideIn longFadeIn card-body ">
-          <div className="product-detail-image text-center col-sm-12 col-lg-7 p-0 pr-3 mb-4">
+        <div className="row  longFadeIn card-body ">
+          <div className="product-detail-image slideIn text-center col-sm-12 col-lg-7 p-0 pr-3 mb-4">
             <img className="card-detail-image" src={this.state.product
               ? this.state.product.image
               : 'loading'} alt=""
