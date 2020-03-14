@@ -17,7 +17,8 @@ export default class CartSummary extends React.Component {
           key={item.cartItemId}
           delete={this.props.delete}
           item={item}
-          addToCart={this.props.addToCart}>
+          addToCart={this.props.addToCart}
+          setView={this.props.setView}>
         </CartSummaryItem>
       );
     });
