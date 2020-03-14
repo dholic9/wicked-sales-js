@@ -51,7 +51,7 @@ export default class ProductDetails extends React.Component {
           <div onClick={this.handleCatalogClick} className="backButton my-3 text-secondary ">  Back to catalog</div>
         </div>
 
-        <div className="row card-body ">
+        <div className="row longSlideIn longFadeIn card-body ">
           <div className="product-detail-image text-center col-sm-12 col-lg-7 p-0 pr-3 mb-4">
             <img className="card-detail-image" src={this.state.product
               ? this.state.product.image
@@ -79,8 +79,8 @@ export default class ProductDetails extends React.Component {
         </div>
 
         <div className={this.state.showModal
-          ? 'modal longFadeIn start-modal text-center'
-          : 'modal longFadeIn hidden start-modal text-center'}>
+          ? 'modal fastFadeIn start-modal text-center'
+          : 'modal fastFadeIn hidden start-modal text-center'}>
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content add-cart-modal align-items-center text-center justify-content-center">
               <div className="modal-body add-modal  flex-column justify-content-center">

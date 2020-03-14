@@ -48,8 +48,8 @@ export default class ProductList extends React.Component {
     const productsArray = this.state.products;
     return (
       <React.Fragment>
-        <div className="row justify-content-center align-items-center carousel longFadeIn mb-4">
-          <div id="carouselExampleIndicators" className="carousel slide" data-interval="5500" data-ride="carousel">
+        <div className="row slideIn justify-content-center align-items-center carousel longFadeIn mb-4">
+          <div id="carouselExampleIndicators" className="carousel longFadeIn slide" data-interval="5500" data-ride="carousel">
             <ol className="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -88,10 +88,10 @@ export default class ProductList extends React.Component {
             </a>
           </div>
         </div>
-        <div className="row mb-5">
+        <div className="row slideIn mb-5">
           {productsArray.map(product => {
             return (
-              <div key={product.productId} className=" fadeIn product-card col-12 col-sm-6 col-md-4 mb-3">
+              <div key={product.productId} className="product-card col-12 col-sm-6 col-md-4 mb-3">
                 <ProductListItem
                   setView={this.props.setView}
                   name={product.name}
@@ -105,10 +105,10 @@ export default class ProductList extends React.Component {
           })}
         </div>
         <div className={this.state.modalShown
-          ? 'modal longFadeIn  start-modal text-center'
-          : 'modal longFadeIn hidden start-modal text-center'}>
+          ? 'modal fadeIn  start-modal text-center'
+          : 'modal fadeIn hidden start-modal text-center'}>
           <div className="  modal-dialog modal-dialog-centered">
-            <div className="modal-content">
+            <div className="modal-content slideIn">
               <div className="modal-body flex-column justify-content-center">
                 <h3 className='mb-3 '><u>Welcome to Mechanical Keys</u></h3>
                 <p>Mechanical Keys is a MERN stack content management app created for demonstation purposes.

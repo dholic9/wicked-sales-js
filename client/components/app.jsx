@@ -161,7 +161,7 @@ export default class App extends React.Component {
             cartItemCount={this.state.cart.length}
             setView={this.setView}>
           </Header>
-          <div className="container-fluid">
+          <div className="longFadeIn container-fluid">
             {this.showView()}
           </div>
         </div>
