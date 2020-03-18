@@ -37,11 +37,8 @@ body{
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
 }
 .feature-card:hover{
-  border: solid 2px rgba(0, 0, 0, 0.31);
+  /* border: solid 2px rgba(0, 0, 0, 0.31); */
   cursor: pointer;
-}
-.card-detail {
-  /* padding-left: 15%; */
 }
 .card-detail-image {
   height: 300px;
@@ -58,7 +55,6 @@ body{
   font-size: 1.2rem;
   display:flex
 }
-
 .cart-item-number{
   font-size: 1.1rem;
 }
@@ -89,7 +85,6 @@ body{
 .cart-item-detail{
   margin-left: 1.5rem;
 }
-
 .carousel-pic {
   object-fit: contain;
   width: 100%;
@@ -99,18 +94,15 @@ body{
 .feedback {
   color: red;
 }
-
 .isInvalid {
   border: 1px solid red;
 }
-
 .continue-button {
   width: 101%;
 }
 .go-to-cart-button {
   width: 100%;
 }
-
 .fadeIn{
   animation: fadein .75s linear;
 }
@@ -120,19 +112,16 @@ body{
 .longFadeIn{
   animation: fadein 2s ease-in-out;
 }
-
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
 .slideIn {
   animation: slidein .75s ease-out
 }
 .longSlideIn {
   animation: slidein 1s ease-out
 }
-
 @keyframes slidein {
   from {
     transform: translateY(50%);
@@ -163,6 +152,7 @@ body{
 .add-modal {
   padding: 1rem 2rem;
 }
+
 /**       CHECKOUT MODAL          */
 
 .checkout-modal {
@@ -172,7 +162,6 @@ body{
   overflow: hidden;
   border: 3px solid rgba(0, 0, 0, 0.87);
 }
-
 
 /**      MEDIA QUERIES    */
 /**    Iphone6/7/8/X landscape    */
