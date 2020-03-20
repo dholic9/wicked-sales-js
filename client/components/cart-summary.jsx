@@ -63,8 +63,8 @@ export default class CartSummary extends React.Component {
           {this.props.Array.length === 0
             ? ''
             : (<div className="flex-row">
-                <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
-              </div>)}
+              <h4 className="total-price">{'Cart Total: $' + this.displayTotalPrice()}</h4>
+            </div>)}
           <div>
             {this.props.Array.length === 0
               ? ''

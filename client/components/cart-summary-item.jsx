@@ -5,7 +5,7 @@ export default class CartSummaryItem extends React.Component {
     super(props);
     this.state = {
       showModal: false
-    }
+    };
     this.handleCartItemDelete = this.handleCartItemDelete.bind(this);
     this.openDeleteConfirmation = this.openDeleteConfirmation.bind(this);
     this.handleCartAddQuantity = this.handleCartAddQuantity.bind(this);
@@ -13,28 +13,28 @@ export default class CartSummaryItem extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  handleCartItemDelete(){
-    this.props.delete(this.props.item)
+  handleCartItemDelete() {
+    this.props.delete(this.props.item);
   }
 
-  openDeleteConfirmation(){
-    this.setState({ showModal: true})
+  openDeleteConfirmation() {
+    this.setState({ showModal: true });
   }
 
-  closeModal(){
-    this.setState({ showModal: false })
+  closeModal() {
+    this.setState({ showModal: false });
   }
 
-  handleCartAddQuantity(){
-    let tempProductId = this.props.item.productId;
-    let increaseItem = {
+  handleCartAddQuantity() {
+    const tempProductId = this.props.item.productId;
+    const increaseItem = {
       productId: tempProductId
-    }
-    this.props.addToCart(increaseItem)
+    };
+    this.props.addToCart(increaseItem);
   }
 
-  handleSetView(){
-    this.props.setView('details', { productId: this.props.item.productId })
+  handleSetView() {
+    this.props.setView('details', { productId: this.props.item.productId });
   }
 
   render() {
