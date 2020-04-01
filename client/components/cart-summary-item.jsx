@@ -48,6 +48,7 @@ export default class CartSummaryItem extends React.Component {
           <h5 className="text-secondary">{'$' + (this.props.item.price / 100).toFixed(2)}</h5>
           <p>{this.props.item.shortDescription}</p>
 
+{/*
           <div className=" d-flex align-items-center mb-2 ">
             <button className="btn btn-sm border-dark">
               <i className="fas fa-minus"></i>
@@ -58,7 +59,7 @@ export default class CartSummaryItem extends React.Component {
               onClick={this.handleCartAddQuantity}>
               <i className="fas fa-plus"></i>
             </button>
-          </div>
+          </div> */}
 
           <button type='button' className="btn btn-danger" onClick={this.openDeleteConfirmation}>Remove</button>
         </div>
