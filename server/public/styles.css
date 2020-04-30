@@ -37,7 +37,6 @@ body{
   box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.4);
 }
 .feature-card:hover{
-  border: solid 2px rgba(0, 0, 0, 0.31);
   cursor: pointer;
 }
 .card-detail-image {
