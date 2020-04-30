@@ -84,5 +84,4 @@ export default class CartSummaryItem extends React.Component {
       </div>
     );
   }
-
 }
